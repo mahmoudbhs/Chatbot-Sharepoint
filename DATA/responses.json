@@ -1,0 +1,318 @@
+{
+  "responses": {
+    "default": [
+      "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? 🤔",
+      "Hmm, je n'ai pas bien compris. Pouvez-vous être plus précis ?",
+      "Je peux vous aider avec SharePoint, Teams et OneDrive. Que souhaitez-vous savoir ?"
+    ],
+    "error": [
+      "Désolé, une erreur s'est produite. Pouvez-vous réessayer ?",
+      "Oups ! Quelque chose s'est mal passé. Reformulez votre question."
+    ],
+    "quick_replies": {
+      "sharepoint": [
+        "Comment utiliser SharePoint ?",
+        "Partager un document SharePoint",
+        "Créer une bibliothèque SharePoint"
+      ],
+      "teams": [
+        "Comment utiliser Teams ?",
+        "Créer une réunion Teams",
+        "Partager mon écran Teams"
+      ],
+      "onedrive": [
+        "Comment utiliser OneDrive ?",
+        "Synchroniser OneDrive",
+        "Partager un fichier OneDrive"
+      ],
+      "guides": [
+        "Voir les guides disponibles",
+        "Fiche pratique SharePoint",
+        "Documentation Teams"
+      ]
+    },
+    "sharepoint_features": {
+      "libraries": "Les bibliothèques de documents permettent de stocker et organiser vos fichiers. Vous pouvez créer des dossiers, définir des métadonnées et gérer les versions.",
+      "lists": "Les listes SharePoint permettent de suivre des informations structurées comme des tâches, des contacts ou des inventaires.",
+      "sites": "Les sites SharePoint sont des espaces collaboratifs où votre équipe peut partager des informations et travailler ensemble.",
+      "permissions": "Les permissions contrôlent qui peut voir ou modifier le contenu. Définissez toujours le niveau d'accès approprié."
+    },
+    "teams_features": {
+      "channels": "Les canaux organisent les conversations par sujet ou projet au sein d'une équipe.",
+      "chat": "Le chat permet des conversations privées avec une ou plusieurs personnes.",
+      "meetings": "Les réunions Teams incluent la vidéo, l'audio, le partage d'écran et l'enregistrement.",
+      "files": "Chaque canal Teams a un onglet Fichiers connecté à SharePoint pour le stockage."
+    },
+    "onedrive_features": {
+      "storage": "Vous disposez de 1 To de stockage OneDrive avec Microsoft 365.",
+      "sync": "La synchronisation permet d'accéder à vos fichiers même hors ligne.",
+      "sharing": "Partagez des fichiers avec des liens sécurisés, avec ou sans mot de passe.",
+      "version_history": "OneDrive conserve l'historique des versions pour récupérer d'anciennes versions."
+    },
+    "best_practices": {
+      "naming": "Utilisez des noms de fichiers clairs et cohérents. Évitez les caractères spéciaux.",
+      "organization": "Créez une structure de dossiers logique et documentez-la pour votre équipe.",
+      "permissions": "Révisez régulièrement les permissions et supprimez les accès inutiles.",
+      "backup": "Même avec OneDrive, conservez des copies des fichiers critiques.",
+      "training": "Formez régulièrement les utilisateurs aux bonnes pratiques M365."
+    },
+    "troubleshooting": {
+      "sync_issues": "Si OneDrive ne synchronise pas : vérifiez votre connexion internet, redémarrez OneDrive, vérifiez l'espace disque disponible.",
+      "access_denied": "Si vous n'avez pas accès : contactez le propriétaire du fichier ou votre administrateur.",
+      "teams_no_video": "Si la vidéo ne fonctionne pas : vérifiez les permissions de la caméra, redémarrez Teams, testez votre caméra.",
+      "search_no_results": "Si la recherche ne trouve rien : vérifiez l'orthographe, attendez l'indexation (nouveaux fichiers), vérifiez vos permissions."
+    }
+  }
+}
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Bonjour",
+        "Salut",
+        "Hello",
+        "Coucou",
+        "Bonsoir",
+        "Hey",
+        "Yo",
+        "Salutations"
+      ],
+      "responses": [
+        "Bonjour ! 👋 Je suis votre assistant M365. Je peux vous aider avec SharePoint, Teams et OneDrive. Comment puis-je vous aider ?",
+        "Salut ! 😊 Bienvenue sur l'assistant M365. Que souhaitez-vous savoir sur nos outils collaboratifs ?",
+        "Hello ! Je suis là pour vous accompagner dans l'utilisation de Microsoft 365. Posez-moi vos questions !"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Au revoir",
+        "Bye",
+        "À plus",
+        "À bientôt",
+        "Merci au revoir",
+        "Salut bye",
+        "Ciao"
+      ],
+      "responses": [
+        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions. 👋",
+        "À bientôt ! Bon travail avec Microsoft 365 ! 😊",
+        "Bonne journée ! Je suis toujours là si vous avez besoin d'aide. 🌟"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Merci",
+        "Merci beaucoup",
+        "Thanks",
+        "Merci bien",
+        "Super merci",
+        "Parfait merci",
+        "C'est gentil"
+      ],
+      "responses": [
+        "Avec plaisir ! 😊 N'hésitez pas si vous avez d'autres questions.",
+        "Je vous en prie ! C'est toujours un plaisir d'aider. 🌟",
+        "Ravi d'avoir pu vous aider ! À bientôt ! 👍"
+      ]
+    },
+    {
+      "tag": "sharepoint_usage",
+      "patterns": [
+        "Comment utiliser SharePoint",
+        "C'est quoi SharePoint",
+        "À quoi sert SharePoint",
+        "Qu'est-ce que SharePoint",
+        "Comment partager des documents sur SharePoint",
+        "Comment créer un site SharePoint",
+        "SharePoint c'est quoi",
+        "Aide SharePoint",
+        "Utilisation SharePoint",
+        "Tutoriel SharePoint"
+      ],
+      "responses": [
+        "SharePoint est une plateforme collaborative qui permet de :\n\n✅ Stocker et organiser vos documents\n✅ Partager des fichiers avec votre équipe\n✅ Créer des sites d'équipe ou de communication\n✅ Gérer des projets collaboratifs\n\nVoulez-vous que je vous montre une fiche pratique ? 📚",
+        "SharePoint Online est votre espace de travail collaboratif ! 🏢\n\nVous pouvez y :\n• Créer des bibliothèques de documents\n• Partager des infos avec votre équipe\n• Gérer des listes et des projets\n\nJe peux vous fournir un guide détaillé si vous le souhaitez !"
+      ]
+    },
+    {
+      "tag": "sharepoint_documents",
+      "patterns": [
+        "Comment ajouter un document SharePoint",
+        "Télécharger un fichier SharePoint",
+        "Uploader dans SharePoint",
+        "Partager un fichier SharePoint",
+        "Synchroniser SharePoint",
+        "Modifier un document SharePoint"
+      ],
+      "responses": [
+        "Pour ajouter des documents dans SharePoint :\n\n1️⃣ Accédez à votre bibliothèque de documents\n2️⃣ Cliquez sur 'Nouveau' ou 'Charger'\n3️⃣ Sélectionnez vos fichiers\n4️⃣ Cliquez sur 'Ouvrir' pour les télécharger\n\n💡 Vous pouvez aussi glisser-déposer vos fichiers directement !",
+        "Pour partager un document SharePoint :\n\n📤 Cliquez sur les 3 points à côté du fichier\n📤 Sélectionnez 'Partager'\n📤 Ajoutez les personnes et définissez les permissions\n📤 Envoyez le lien !\n\nVoulez-vous en savoir plus ?"
+      ]
+    },
+    {
+      "tag": "teams_usage",
+      "patterns": [
+        "Comment utiliser Teams",
+        "C'est quoi Teams",
+        "À quoi sert Teams",
+        "Comment créer une équipe Teams",
+        "Comment faire une réunion Teams",
+        "Teams c'est quoi",
+        "Aide Teams",
+        "Tutoriel Teams",
+        "Microsoft Teams"
+      ],
+      "responses": [
+        "Microsoft Teams est votre hub de collaboration ! 💬\n\nVous pouvez :\n✅ Discuter avec vos collègues (chat et appels)\n✅ Organiser des réunions vidéo\n✅ Partager des fichiers\n✅ Travailler sur des projets en équipe\n\nJe peux vous montrer un guide d'utilisation ! 📖",
+        "Teams, c'est l'outil central pour communiquer et collaborer ! 🚀\n\n🗨️ Chat instantané\n📞 Appels audio/vidéo\n📁 Partage de fichiers\n📅 Planification de réunions\n\nQue souhaitez-vous savoir en particulier ?"
+      ]
+    },
+    {
+      "tag": "teams_meeting",
+      "patterns": [
+        "Planifier une réunion Teams",
+        "Créer une réunion Teams",
+        "Faire un appel Teams",
+        "Organiser une visio Teams",
+        "Lancer une réunion Teams",
+        "Démarrer un meeting Teams"
+      ],
+      "responses": [
+        "Pour créer une réunion Teams :\n\n1️⃣ Dans Teams, cliquez sur 'Calendrier'\n2️⃣ Cliquez sur 'Nouvelle réunion'\n3️⃣ Ajoutez un titre et les participants\n4️⃣ Définissez la date et l'heure\n5️⃣ Cliquez sur 'Enregistrer'\n\n📩 Les participants recevront une invitation par email !",
+        "Pour lancer une réunion instantanée :\n\n⚡ Cliquez sur 'Se réunir maintenant' en haut de Teams\n⚡ Ajoutez un titre\n⚡ Invitez les participants\n⚡ Démarrez la réunion !\n\nC'est simple et rapide ! 😊"
+      ]
+    },
+    {
+      "tag": "onedrive_usage",
+      "patterns": [
+        "Comment utiliser OneDrive",
+        "C'est quoi OneDrive",
+        "À quoi sert OneDrive",
+        "Comment synchroniser OneDrive",
+        "Où sont mes fichiers OneDrive",
+        "OneDrive c'est quoi",
+        "Aide OneDrive",
+        "Tutoriel OneDrive"
+      ],
+      "responses": [
+        "OneDrive est votre espace de stockage personnel dans le cloud ! ☁️\n\nVous pouvez :\n✅ Sauvegarder vos fichiers en ligne\n✅ Accéder à vos documents partout\n✅ Synchroniser avec votre ordinateur\n✅ Partager des fichiers facilement\n\nVoulez-vous savoir comment le configurer ? 🔧",
+        "OneDrive = Votre disque dur dans le cloud ! 💾\n\n📂 Stockage sécurisé\n🔄 Synchronisation automatique\n📱 Accès depuis n'importe quel appareil\n🔗 Partage simple\n\nQue souhaitez-vous faire avec OneDrive ?"
+      ]
+    },
+    {
+      "tag": "onedrive_sync",
+      "patterns": [
+        "Synchroniser OneDrive",
+        "Configurer OneDrive",
+        "Installer OneDrive",
+        "OneDrive ne synchronise pas",
+        "Problème synchronisation OneDrive"
+      ],
+      "responses": [
+        "Pour synchroniser OneDrive :\n\n1️⃣ Téléchargez l'application OneDrive\n2️⃣ Connectez-vous avec vos identifiants M365\n3️⃣ Choisissez les dossiers à synchroniser\n4️⃣ Vos fichiers se synchronisent automatiquement !\n\n💡 Un nuage bleu indique que le fichier est en ligne uniquement, une coche verte qu'il est synchronisé.",
+        "Configuration de OneDrive :\n\n🔧 Clic droit sur l'icône OneDrive (barre des tâches)\n🔧 Paramètres > Compte > Choisir les dossiers\n🔧 Sélectionnez ce que vous voulez synchroniser\n\n✅ C'est parti ! Vos fichiers sont maintenant sauvegardés dans le cloud."
+      ]
+    },
+    {
+      "tag": "get_guide",
+      "patterns": [
+        "Montre-moi un guide",
+        "J'ai besoin d'aide",
+        "Fiche pratique",
+        "Documentation",
+        "Tutoriel",
+        "Guide d'utilisation",
+        "Aide",
+        "Comment faire",
+        "Besoin d'un guide",
+        "Documentation disponible"
+      ],
+      "responses": [
+        "Je recherche les guides disponibles pour vous... 📚",
+        "Laissez-moi vous montrer nos fiches pratiques ! 📖",
+        "Je vais chercher la documentation pour vous aider ! 🔍"
+      ]
+    },
+    {
+      "tag": "collaboration",
+      "patterns": [
+        "Travailler en équipe",
+        "Collaboration",
+        "Partager avec collègues",
+        "Travail collaboratif",
+        "Coédition",
+        "Modifier ensemble",
+        "Travailler à plusieurs"
+      ],
+      "responses": [
+        "Microsoft 365 offre plusieurs outils de collaboration :\n\n👥 **Teams** : Communication et réunions\n📁 **SharePoint** : Partage de documents d'équipe\n☁️ **OneDrive** : Partage de fichiers personnels\n📝 **Office Online** : Coédition en temps réel\n\nQuel outil vous intéresse particulièrement ?",
+        "La collaboration dans M365, c'est facile ! 🤝\n\n✅ Partagez vos fichiers depuis OneDrive ou SharePoint\n✅ Travaillez simultanément sur les mêmes documents\n✅ Communiquez via Teams\n✅ Suivez les modifications et versions\n\nQue souhaitez-vous faire exactement ?"
+      ]
+    },
+    {
+      "tag": "permissions",
+      "patterns": [
+        "Gérer les permissions",
+        "Droits d'accès",
+        "Qui peut voir",
+        "Modifier les permissions",
+        "Partage sécurisé",
+        "Contrôle d'accès",
+        "Autorisation"
+      ],
+      "responses": [
+        "Les permissions dans M365 permettent de contrôler qui accède à quoi :\n\n🔒 **Lecture** : Consulter uniquement\n✏️ **Modification** : Consulter et modifier\n👑 **Propriétaire** : Contrôle total\n\n💡 Conseil : Ne partagez qu'avec les personnes nécessaires et donnez le minimum de droits requis !",
+        "Pour gérer les permissions :\n\n1️⃣ Clic droit sur le fichier/dossier\n2️⃣ Sélectionnez 'Partager' ou 'Gérer l'accès'\n3️⃣ Ajoutez ou supprimez des personnes\n4️⃣ Définissez le niveau d'accès\n\n🔐 La sécurité de vos données est importante !"
+      ]
+    },
+    {
+      "tag": "search",
+      "patterns": [
+        "Rechercher un document",
+        "Trouver un fichier",
+        "Chercher dans SharePoint",
+        "Comment rechercher",
+        "Où est mon document",
+        "Retrouver un fichier"
+      ],
+      "responses": [
+        "Pour rechercher efficacement dans M365 :\n\n🔍 Utilisez la barre de recherche en haut\n🔍 Dans SharePoint : recherche dans la bibliothèque\n🔍 Dans Teams : recherche dans les messages et fichiers\n🔍 Dans OneDrive : recherche dans vos fichiers personnels\n\n💡 Astuce : Utilisez des mots-clés précis pour de meilleurs résultats !",
+        "La recherche M365 explore tous vos contenus :\n\n✅ Documents\n✅ Messages Teams\n✅ Emails\n✅ Sites SharePoint\n\nTapez simplement dans la barre de recherche en haut de la page ! 🔎"
+      ]
+    },
+    {
+      "tag": "mobile",
+      "patterns": [
+        "Application mobile",
+        "Teams sur mobile",
+        "OneDrive sur téléphone",
+        "Smartphone",
+        "Tablette",
+        "App mobile M365"
+      ],
+      "responses": [
+        "Microsoft 365 est disponible sur mobile ! 📱\n\n📲 **Teams** : Chat, appels, réunions\n📲 **OneDrive** : Accès à vos fichiers\n📲 **SharePoint** : Accès aux sites d'équipe\n📲 **Office Mobile** : Word, Excel, PowerPoint\n\nTéléchargez les apps depuis l'App Store ou Google Play !",
+        "Restez connecté où que vous soyez ! 🌍\n\nTéléchargez :\n✅ Microsoft Teams\n✅ OneDrive\n✅ SharePoint\n✅ Office Mobile\n\nToutes vos données synchronisées sur tous vos appareils ! 🔄"
+      ]
+    },
+    {
+      "tag": "help_general",
+      "patterns": [
+        "Aide",
+        "Help",
+        "Je suis perdu",
+        "Que peux-tu faire",
+        "Comment ça marche",
+        "Qu'est-ce que tu peux faire",
+        "Fonctionnalités"
+      ],
+      "responses": [
+        "Je suis votre assistant M365 ! 🤖\n\nJe peux vous aider avec :\n\n📁 **SharePoint** : Sites, bibliothèques, partage\n💬 **Teams** : Chat, réunions, collaboration\n☁️ **OneDrive** : Stockage, synchronisation\n📚 **Guides** : Fiches pratiques et tutoriels\n\nPosez-moi une question spécifique ! 😊",
+        "Bienvenue ! Je suis là pour vous guider dans M365. 🌟\n\nDemandez-moi :\n• Comment utiliser un outil\n• Comment faire une action précise\n• Accéder aux guides et documentation\n\nQue voulez-vous savoir ?"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "intents": [
+    {
+      "tag": "salutation",
+      "patterns": [
+        "Bonjour",
+        "Salut",
+        "Hello",
+        "Bonsoir",
+        "Coucou",
+        "Yo",
+        "Hey"
+      ],
+      "responses": [
+        "Bonjour ! Comment puis-je vous aider avec Microsoft 365 ?",
+        "Salut ! Que puis-je faire pour vous aujourd'hui ?",
+        "Hello ! Posez-moi vos questions sur SharePoint, Teams ou OneDrive !"
+      ]
+    },
+    {
+      "tag": "aurevoir",
+      "patterns": [
+        "Au revoir",
+        "Bye",
+        "À plus",
+        "Salut",
+        "Tchao",
+        "À bientôt"
+      ],
+      "responses": [
+        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions.",
+        "À bientôt ! Bonne journée avec M365 !",
+        "Bye ! Je suis là si besoin."
+      ]
+    },
+    {
+      "tag": "teams_partage_fichier",
+      "patterns": [
+        "Comment partager un fichier sur Teams",
+        "Je veux envoyer un document Teams",
+        "Partage de fichier dans Teams",
+        "Comment envoyer un fichier par Teams",
+        "Partager un doc Teams",
+        "Transférer un fichier Teams",
+        "Envoyer un document dans une conversation Teams",
+        "Comment joindre un fichier Teams",
+        "Uploader un fichier sur Teams",
+        "Comment je fais pour partager un fichier Teams"
+      ],
+      "responses": [
+        "Pour partager un fichier sur Teams :\n\n1. Ouvrez la conversation ou le canal\n2. Cliquez sur l'icône 📎 (trombone)\n3. Sélectionnez votre fichier\n4. Cliquez sur 'Envoyer'\n\n💡 Astuce : Vous pouvez aussi glisser-déposer le fichier directement !\n\n[Voir la fiche complète](/fiches/teams-partage)"
+      ]
+    },
+    {
+      "tag": "teams_reunion",
+      "patterns": [
+        "Comment créer une réunion Teams",
+        "Planifier un meeting Teams",
+        "Organiser une visio Teams",
+        "Créer une réunion sur Teams",
+        "Comment faire une réunion Teams",
+        "Planifier un appel Teams",
+        "Organiser une vidéoconférence Teams",
+        "Comment lancer une réunion Teams"
+      ],
+      "responses": [
+        "Pour créer une réunion Teams :\n\n1. Allez dans l'onglet 'Calendrier'\n2. Cliquez sur 'Nouvelle réunion'\n3. Ajoutez un titre et les participants\n4. Choisissez la date et l'heure\n5. Cliquez sur 'Envoyer'\n\n💡 Vous pouvez aussi créer une réunion instantanée avec 'Démarrer maintenant' !\n\n[Voir le tutoriel vidéo](/videos/teams-reunion)"
+      ]
+    },
+    {
+      "tag": "sharepoint_creer_site",
+      "patterns": [
+        "Comment créer un site SharePoint",
+        "Créer un site SP",
+        "Nouveau site SharePoint",
+        "Comment faire un site SharePoint",
+        "Créer un espace SharePoint",
+        "Démarrer un site SharePoint",
+        "Comment créer un site d'équipe SharePoint"
+      ],
+      "responses": [
+        "Pour créer un site SharePoint :\n\n1. Connectez-vous à SharePoint\n2. Cliquez sur '+ Créer un site'\n3. Choisissez 'Site d'équipe' ou 'Site de communication'\n4. Remplissez le nom et la description\n5. Cliquez sur 'Terminer'\n\n💡 Un site d'équipe = collaboration privée\n💡 Un site de communication = partage public\n\n[Voir le guide complet](/guides/sharepoint-site)"
+      ]
+    },
+    {
+      "tag": "onedrive_synchronisation",
+      "patterns": [
+        "Comment synchroniser OneDrive",
+        "Synchro OneDrive",
+        "OneDrive ne se synchronise pas",
+        "Synchroniser mes fichiers OneDrive",
+        "Comment activer la synchro OneDrive",
+        "Connecter OneDrive à mon PC",
+        "Synchronisation OneDrive Windows"
+      ],
+      "responses": [
+        "Pour synchroniser OneDrive :\n\n1. Ouvrez l'application OneDrive\n2. Connectez-vous avec votre compte professionnel\n3. Choisissez les dossiers à synchroniser\n4. Cliquez sur 'Suivant' puis 'Ouvrir mon dossier OneDrive'\n\n💡 Vos fichiers sont maintenant accessibles hors ligne !\n💡 L'icône ☁️ indique qu'un fichier est en ligne uniquement\n\n[Résoudre les problèmes de synchro](/support/onedrive-synchro)"
+      ]
+    },
+    {
+      "tag": "difference_outils",
+      "patterns": [
+        "Quelle est la différence entre Teams et SharePoint",
+        "Différence OneDrive SharePoint",
+        "Teams vs SharePoint",
+        "OneDrive ou SharePoint",
+        "C'est quoi la différence entre OneDrive et Teams",
+        "Quand utiliser SharePoint ou Teams",
+        "Teams ou OneDrive pour stocker"
+      ],
+      "responses": [
+        "Voici les différences entre les outils M365 :\n\n **OneDrive** : Fichiers personnels (comme votre disque dur personnel dans le cloud)\n\n👥 **SharePoint** : Fichiers d'équipe/département (espace partagé pour une équipe)\n\n💬 **Teams** : Communication + collaboration (chat + réunions + fichiers d'équipe)\n\n💡 À savoir : Les fichiers dans Teams sont en fait stockés sur SharePoint !\n\n[Voir le schéma explicatif](/guides/difference-outils)"
+      ]
+    },
+    {
+      "tag": "aide_generale",
+      "patterns": [
+        "J'ai besoin d'aide",
+        "Je ne comprends pas",
+        "Aidez-moi",
+        "Je suis perdu",
+        "Je ne sais pas quoi faire",
+        "Comment ça marche",
+        "Expliquez-moi"
+      ],
+      "responses": [
+        "Je suis là pour vous aider ! \n\nVoici ce que je peux faire :\n\n Répondre à vos questions sur SharePoint\n Vous guider sur Teams\n Vous aider avec OneDrive\n\nPosez-moi une question spécifique ou explorez nos ressources :\n\n[Fiches pratiques](/fiches)\n[Tutoriels vidéo](/videos)\n[FAQ complète](/faq)"
+      ]
+    },
+    {
+      "tag": "incomprehension",
+      "patterns": [
+        "Je ne comprends pas ta réponse",
+        "Ce n'est pas clair",
+        "Peux-tu reformuler",
+        "Explique autrement",
+        "C'est compliqué",
+        "Je n'ai pas compris"
+      ],
+      "responses": [
+        "Désolé si ce n'était pas clair ! \n\nPouvez-vous me dire quelle partie n'est pas claire ?\n\nOu préférez-vous :\n-  Une fiche pratique PDF ?\n- 🎥 Un tutoriel vidéo ?\n- 📞 Contacter le support IT ?\n\n[Contacter le support](/support)"
+      ]
+    }
+  ]
+}

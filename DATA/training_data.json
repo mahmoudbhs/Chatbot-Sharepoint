@@ -1,0 +1,244 @@
+{
+  "training_data": [
+    {
+      "intent": "greeting",
+      "examples": [
+        "Bonjour",
+        "Salut",
+        "Hello",
+        "Coucou",
+        "Bonsoir",
+        "Hey",
+        "Yo",
+        "Salutations",
+        "Bonne journée",
+        "Bienvenue"
+      ]
+    },
+    {
+      "intent": "goodbye",
+      "examples": [
+        "Au revoir",
+        "Bye",
+        "À plus",
+        "À bientôt",
+        "Merci au revoir",
+        "Salut bye",
+        "Ciao",
+        "À la prochaine",
+        "Adieu",
+        "Bonne continuation"
+      ]
+    },
+    {
+      "intent": "thanks",
+      "examples": [
+        "Merci",
+        "Merci beaucoup",
+        "Thanks",
+        "Merci bien",
+        "Super merci",
+        "Parfait merci",
+        "C'est gentil",
+        "Je te remercie",
+        "Merci infiniment"
+      ]
+    },
+    {
+      "intent": "sharepoint_usage",
+      "examples": [
+        "Comment utiliser SharePoint",
+        "C'est quoi SharePoint",
+        "À quoi sert SharePoint",
+        "Qu'est-ce que SharePoint",
+        "Comment partager des documents sur SharePoint",
+        "Comment créer un site SharePoint",
+        "SharePoint c'est quoi",
+        "Aide SharePoint",
+        "Utilisation SharePoint",
+        "Tutoriel SharePoint",
+        "Apprendre SharePoint",
+        "Débuter avec SharePoint",
+        "SharePoint pour les nuls",
+        "Guide SharePoint"
+      ]
+    },
+    {
+      "intent": "sharepoint_documents",
+      "examples": [
+        "Comment ajouter un document SharePoint",
+        "Télécharger un fichier SharePoint",
+        "Uploader dans SharePoint",
+        "Partager un fichier SharePoint",
+        "Synchroniser SharePoint",
+        "Modifier un document SharePoint",
+        "Supprimer un document SharePoint",
+        "Déplacer un fichier SharePoint",
+        "Copier un document SharePoint",
+        "Versionning SharePoint"
+      ]
+    },
+    {
+      "intent": "teams_usage",
+      "examples": [
+        "Comment utiliser Teams",
+        "C'est quoi Teams",
+        "À quoi sert Teams",
+        "Comment créer une équipe Teams",
+        "Comment faire une réunion Teams",
+        "Teams c'est quoi",
+        "Aide Teams",
+        "Tutoriel Teams",
+        "Microsoft Teams",
+        "Apprendre Teams",
+        "Débuter avec Teams",
+        "Guide Teams"
+      ]
+    },
+    {
+      "intent": "teams_meeting",
+      "examples": [
+        "Planifier une réunion Teams",
+        "Créer une réunion Teams",
+        "Faire un appel Teams",
+        "Organiser une visio Teams",
+        "Lancer une réunion Teams",
+        "Démarrer un meeting Teams",
+        "Inviter à une réunion Teams",
+        "Partager mon écran Teams",
+        "Enregistrer une réunion Teams",
+        "Programmer une visioconférence"
+      ]
+    },
+    {
+      "intent": "onedrive_usage",
+      "examples": [
+        "Comment utiliser OneDrive",
+        "C'est quoi OneDrive",
+        "À quoi sert OneDrive",
+        "Comment synchroniser OneDrive",
+        "Où sont mes fichiers OneDrive",
+        "OneDrive c'est quoi",
+        "Aide OneDrive",
+        "Tutoriel OneDrive",
+        "Apprendre OneDrive",
+        "Débuter avec OneDrive",
+        "Guide OneDrive",
+        "Mon cloud OneDrive"
+      ]
+    },
+    {
+      "intent": "onedrive_sync",
+      "examples": [
+        "Synchroniser OneDrive",
+        "Configurer OneDrive",
+        "Installer OneDrive",
+        "OneDrive ne synchronise pas",
+        "Problème synchronisation OneDrive",
+        "OneDrive ne fonctionne pas",
+        "Erreur OneDrive",
+        "OneDrive bloqué",
+        "Réparer OneDrive"
+      ]
+    },
+    {
+      "intent": "get_guide",
+      "examples": [
+        "Montre-moi un guide",
+        "J'ai besoin d'aide",
+        "Fiche pratique",
+        "Documentation",
+        "Tutoriel",
+        "Guide d'utilisation",
+        "Aide",
+        "Comment faire",
+        "Besoin d'un guide",
+        "Documentation disponible",
+        "Voir les guides",
+        "Liste des tutoriels",
+        "Ressources disponibles"
+      ]
+    },
+    {
+      "intent": "collaboration",
+      "examples": [
+        "Travailler en équipe",
+        "Collaboration",
+        "Partager avec collègues",
+        "Travail collaboratif",
+        "Coédition",
+        "Modifier ensemble",
+        "Travailler à plusieurs",
+        "Travail d'équipe",
+        "Collaboration en ligne",
+        "Partage collaboratif"
+      ]
+    },
+    {
+      "intent": "permissions",
+      "examples": [
+        "Gérer les permissions",
+        "Droits d'accès",
+        "Qui peut voir",
+        "Modifier les permissions",
+        "Partage sécurisé",
+        "Contrôle d'accès",
+        "Autorisation",
+        "Donner accès",
+        "Retirer des droits",
+        "Permissions de partage"
+      ]
+    },
+    {
+      "intent": "search",
+      "examples": [
+        "Rechercher un document",
+        "Trouver un fichier",
+        "Chercher dans SharePoint",
+        "Comment rechercher",
+        "Où est mon document",
+        "Retrouver un fichier",
+        "Fonction recherche",
+        "Je ne trouve pas mon fichier",
+        "Localiser un document"
+      ]
+    },
+    {
+      "intent": "mobile",
+      "examples": [
+        "Application mobile",
+        "Teams sur mobile",
+        "OneDrive sur téléphone",
+        "Smartphone",
+        "Tablette",
+        "App mobile M365",
+        "Version mobile",
+        "Utiliser sur téléphone",
+        "Télécharger l'app",
+        "Mobile Teams"
+      ]
+    },
+    {
+      "intent": "help_general",
+      "examples": [
+        "Aide",
+        "Help",
+        "Je suis perdu",
+        "Que peux-tu faire",
+        "Comment ça marche",
+        "Qu'est-ce que tu peux faire",
+        "Fonctionnalités",
+        "Commandes disponibles",
+        "À quoi tu sers",
+        "Présente-toi"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-02-04",
+    "total_intents": 15,
+    "language": "fr",
+    "domain": "Microsoft 365"
+  }
+}
