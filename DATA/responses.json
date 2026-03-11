@@ -1,7 +1,7 @@
 {
   "responses": {
     "default": [
-      "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? 🤔",
+      "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ? ",
       "Hmm, je n'ai pas bien compris. Pouvez-vous être plus précis ?",
       "Je peux vous aider avec SharePoint, Teams et OneDrive. Que souhaitez-vous savoir ?"
     ],
@@ -62,10 +62,8 @@
       "teams_no_video": "Si la vidéo ne fonctionne pas : vérifiez les permissions de la caméra, redémarrez Teams, testez votre caméra.",
       "search_no_results": "Si la recherche ne trouve rien : vérifiez l'orthographe, attendez l'indexation (nouveaux fichiers), vérifiez vos permissions."
     }
-  }
-}
-{
-  "intents": [
+},
+"intents": [
     {
       "tag": "greeting",
       "patterns": [
@@ -79,8 +77,8 @@
         "Salutations"
       ],
       "responses": [
-        "Bonjour ! 👋 Je suis votre assistant M365. Je peux vous aider avec SharePoint, Teams et OneDrive. Comment puis-je vous aider ?",
-        "Salut ! 😊 Bienvenue sur l'assistant M365. Que souhaitez-vous savoir sur nos outils collaboratifs ?",
+        "Bonjour !  Je suis votre assistant M365. Je peux vous aider avec SharePoint, Teams et OneDrive. Comment puis-je vous aider ?",
+        "Salut !  Bienvenue sur l'assistant M365. Que souhaitez-vous savoir sur nos outils collaboratifs ?",
         "Hello ! Je suis là pour vous accompagner dans l'utilisation de Microsoft 365. Posez-moi vos questions !"
       ]
     },
@@ -96,9 +94,9 @@
         "Ciao"
       ],
       "responses": [
-        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions. 👋",
-        "À bientôt ! Bon travail avec Microsoft 365 ! 😊",
-        "Bonne journée ! Je suis toujours là si vous avez besoin d'aide. 🌟"
+        "Au revoir ! N'hésitez pas à revenir si vous avez d'autres questions. ",
+        "À bientôt ! Bon travail avec Microsoft 365 ! ",
+        "Bonne journée ! Je suis toujours là si vous avez besoin d'aide. "
       ]
     },
     {
@@ -113,9 +111,9 @@
         "C'est gentil"
       ],
       "responses": [
-        "Avec plaisir ! 😊 N'hésitez pas si vous avez d'autres questions.",
-        "Je vous en prie ! C'est toujours un plaisir d'aider. 🌟",
-        "Ravi d'avoir pu vous aider ! À bientôt ! 👍"
+        "Avec plaisir !  N'hésitez pas si vous avez d'autres questions.",
+        "Je vous en prie ! C'est toujours un plaisir d'aider. ",
+        "Ravi d'avoir pu vous aider ! À bientôt ! "
       ]
     },
     {
@@ -133,7 +131,7 @@
         "Tutoriel SharePoint"
       ],
       "responses": [
-        "SharePoint est une plateforme collaborative qui permet de :\n\n✅ Stocker et organiser vos documents\n✅ Partager des fichiers avec votre équipe\n✅ Créer des sites d'équipe ou de communication\n✅ Gérer des projets collaboratifs\n\nVoulez-vous que je vous montre une fiche pratique ? 📚",
+        "SharePoint est une plateforme collaborative qui permet de :\n\nStocker et organiser vos documents\n Partager des fichiers avec votre équipe\n Créer des sites d'équipe ou de communication\n Gérer des projets collaboratifs\n\nVoulez-vous que je vous montre une fiche pratique ? ",
         "SharePoint Online est votre espace de travail collaboratif ! 🏢\n\nVous pouvez y :\n• Créer des bibliothèques de documents\n• Partager des infos avec votre équipe\n• Gérer des listes et des projets\n\nJe peux vous fournir un guide détaillé si vous le souhaitez !"
       ]
     },
@@ -148,8 +146,8 @@
         "Modifier un document SharePoint"
       ],
       "responses": [
-        "Pour ajouter des documents dans SharePoint :\n\n1️⃣ Accédez à votre bibliothèque de documents\n2️⃣ Cliquez sur 'Nouveau' ou 'Charger'\n3️⃣ Sélectionnez vos fichiers\n4️⃣ Cliquez sur 'Ouvrir' pour les télécharger\n\n💡 Vous pouvez aussi glisser-déposer vos fichiers directement !",
-        "Pour partager un document SharePoint :\n\n📤 Cliquez sur les 3 points à côté du fichier\n📤 Sélectionnez 'Partager'\n📤 Ajoutez les personnes et définissez les permissions\n📤 Envoyez le lien !\n\nVoulez-vous en savoir plus ?"
+        "Pour ajouter des documents dans SharePoint :\n\n1️ Accédez à votre bibliothèque de documents\n2️ Cliquez sur 'Nouveau' ou 'Charger'\n3️ Sélectionnez vos fichiers\n4️ Cliquez sur 'Ouvrir' pour les télécharger\n\n Vous pouvez aussi glisser-déposer vos fichiers directement !",
+        "Pour partager un document SharePoint :\n\n Cliquez sur les 3 points à côté du fichier\n Sélectionnez 'Partager'\n Ajoutez les personnes et définissez les permissions\n Envoyez le lien !\n\nVoulez-vous en savoir plus ?"
       ]
     },
     {
@@ -166,8 +164,8 @@
         "Microsoft Teams"
       ],
       "responses": [
-        "Microsoft Teams est votre hub de collaboration ! 💬\n\nVous pouvez :\n✅ Discuter avec vos collègues (chat et appels)\n✅ Organiser des réunions vidéo\n✅ Partager des fichiers\n✅ Travailler sur des projets en équipe\n\nJe peux vous montrer un guide d'utilisation ! 📖",
-        "Teams, c'est l'outil central pour communiquer et collaborer ! 🚀\n\n🗨️ Chat instantané\n📞 Appels audio/vidéo\n📁 Partage de fichiers\n📅 Planification de réunions\n\nQue souhaitez-vous savoir en particulier ?"
+        "Microsoft Teams est votre hub de collaboration ! \n\nVous pouvez :\n Discuter avec vos collègues (chat et appels)\n Organiser des réunions vidéo\nPartager des fichiers\n Travailler sur des projets en équipe\n\nJe peux vous montrer un guide d'utilisation ! ",
+        "Teams, c'est l'outil central pour communiquer et collaborer ! \n\n Chat instantané\n Appels audio/vidéo\n📁 Partage de fichiers\n📅 Planification de réunions\n\nQue souhaitez-vous savoir en particulier ?"
       ]
     },
     {

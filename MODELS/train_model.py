@@ -1,74 +1,92 @@
 import json
-import pickle
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.svm import LinearSVC
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score
+import pickle
+import nltk
+from nltk.stem import WordNetLemmatizer
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.optimizers import SGD
+import random
+import os
+import nltk
+# Ajoute ces lignes pour télécharger les ressources manquantes
+nltk.download('punkt')
+nltk.download('punkt_tab') # C'est celle qui manque sur ton image !
+nltk.download('wordnet')
 
-# Charger les données
-with open('../DATA/intents.json', 'r', encoding='utf-8') as f:    data = json.load(f)
+# Initialisation
+lemmatizer = WordNetLemmatizer()
+nltk.download('punkt')
+nltk.download('wordnet')
 
-# Préparer les données d'entraînement
-X = []  # Questions
-y = []  # Labels (tags)
+# Chemins
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+INTENTS_PATH = os.path.join(BASE_DIR, 'DATA', 'intents.json')
+RESPONSES_PATH = os.path.join(BASE_DIR, 'DATA', 'responses.json')
+TRAINING_DATA_PATH = os.path.join(BASE_DIR, 'DATA', 'training_data.json')
+MODELS_DIR = os.path.join(BASE_DIR, 'MODELS')
 
-for intent in data['intents']:
+# 1. Charger les données
+with open(INTENTS_PATH, 'r', encoding='utf-8') as file:
+    intents = json.load(file)
+
+words = []
+classes = []
+documents = []
+ignore_letters = ['!', '?', ',', '.']
+
+# 2. Prétraitement
+for intent in intents['intents']:
     for pattern in intent['patterns']:
-        X.append(pattern.lower())
-        y.append(intent['tag'])
+        word_list = nltk.word_tokenize(pattern)
+        words.extend(word_list)
+        documents.append((word_list, intent['tag']))
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
 
-print(f"Dataset : {len(X)} exemples, {len(set(y))} classes")
+words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters]
+words = sorted(list(set(words)))
+classes = sorted(list(set(classes)))
 
-# Split train/test
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
-)
+# Sauvegarder les structures de données (PKL)
+pickle.dump(words, open(os.path.join(MODELS_DIR, 'vectorizer.pkl'), 'wb'))
+pickle.dump(classes, open(os.path.join(MODELS_DIR, 'intent_classifier.pkl'), 'wb'))
 
-# Créer le pipeline ML
-model = Pipeline([
-    ('vectorizer', TfidfVectorizer(
-        ngram_range=(1, 3),      # Unigrammes, bigrammes, trigrammes
-        max_features=1000,       # Top 1000 features
-        lowercase=True,
-        analyzer='word'
-    )),
-    ('classifier', LinearSVC(
-        C=1.0,
-        max_iter=1000,
-        class_weight='balanced'  # Gérer déséquilibre classes
-    ))
-])
+# 3. Créer les données d'entraînement
+training = []
+output_empty = [0] * len(classes)
 
-# Entraînement
-print("Entraînement du modèle...")
-model.fit(X_train, y_train)
+for doc in documents:
+    bag = []
+    word_patterns = doc[0]
+    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns]
+    for word in words:
+        bag.append(1) if word in word_patterns else bag.append(0)
 
-# Évaluation
-y_pred = model.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print(f"\nAccuracy : {accuracy*100:.2f}%")
-print("\nRapport détaillé :")
-print(classification_report(y_test, y_pred))
+    output_row = list(output_empty)
+    output_row[classes.index(doc[1])] = 1
+    training.append([bag, output_row])
 
-# Sauvegarder le modèle
-with open('intent_classifier.pkl', 'wb') as f:
-    pickle.dump(model, f)
+random.shuffle(training)
+training = np.array(training, dtype=object)
 
-print("\n Modèle sauvegardé : intent_classifier.pkl")
+train_x = list(training[:, 0])
+train_y = list(training[:, 1])
 
-# Test manuel
-print("\n--- Tests manuels ---")
-test_questions = [
-    "Comment je partage un fichier Teams ?",
-    "Créer une réunion",
-    "C'est quoi la différence entre OneDrive et SharePoint",
-    "Bonjour",
-    "Au revoir"
-]
+# 4. Construire le modèle
+model = Sequential()
+model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(len(train_y[0]), activation='softmax'))
 
-for question in test_questions:
-    predicted = model.predict([question.lower()])[0]
-    print(f"Q: {question}")
-    print(f"→ Intent détecté : {predicted}\n")
+# Compiler le modèle
+sgd = SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+# 5. Entraîner et Sauvegarder (H5)
+model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+model.save(os.path.join(MODELS_DIR, 'train_model.h5'))
+
+print("\n✅ Modèle entraîné avec succès !")

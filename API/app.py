@@ -3,15 +3,16 @@ from flask_cors import CORS
 import sys
 import os
 
-# Ajouter le chemin parent pour importer chatbot
+# Ajouter le chemin parent pour importer le chatbot sans erreur
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from API.chatbot import chatbot_response
 
 app = Flask(__name__, 
             template_folder='../FRONTEND',
-            static_folder='../FRONTEND')
-CORS(app)
+            static_folder='../FRONTEND',
+            static_url_path='') # Permet d'accéder aux fichiers statiques à la racine
+CORS(app)  # Activer CORS pour toutes les routes
 
 @app.route('/')
 def home():
@@ -20,7 +21,7 @@ def home():
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
-    """Endpoint pour les messages du chatbot"""
+    """Endpoint pour recevoir et traiter les messages"""
     try:
         data = request.get_json()
         message = data.get('message', '')
@@ -28,7 +29,7 @@ def chat():
         if not message:
             return jsonify({'error': 'Message vide'}), 400
         
-        # Obtenir la réponse du chatbot
+        # Obtenir la réponse de l'IA
         response = chatbot_response(message)
         
         return jsonify({
@@ -37,20 +38,15 @@ def chat():
         })
     
     except Exception as e:
+        print(f"Erreur API: {e}")
         return jsonify({
             'error': str(e),
             'status': 'error'
         }), 500
 
-@app.route('/api/health', methods=['GET'])
-def health():
-    """Vérifier que l'API fonctionne"""
-    return jsonify({
-        'status': 'healthy',
-        'message': 'Chatbot M365 is running'
-    })
-
 if __name__ == '__main__':
-    print("🤖 Démarrage du chatbot M365...")
-    print("📍 Accédez au chatbot sur: http://localhost:5000")
+    print("\n" + "="*50)
+    print("Démarrage de l'API Assistant M365...")
+    print(" Accédez au chatbot sur : http://localhost:5000")
+    print("="*50 + "\n")
     app.run(debug=True, host='0.0.0.0', port=5000)
