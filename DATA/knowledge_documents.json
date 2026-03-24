@@ -1,0 +1,108 @@
+{
+  "documents": [
+    {
+      "id": "sp-governance",
+      "title": "Bonnes pratiques SharePoint pour un site d'equipe",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "site", "equipe", "gouvernance", "permissions", "documents"],
+      "content": "Un site SharePoint d'equipe doit avoir une structure de dossiers simple, des proprietaires clairement identifies et des permissions limitees au besoin reel. Il faut definir des conventions de nommage, eviter les sous-dossiers trop profonds, utiliser les bibliotheques de documents et revoir regulierement les acces des membres.",
+      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+    },
+    {
+      "id": "sp-create-site",
+      "title": "Creer un site SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "creer", "creation", "site", "nouveau site"],
+      "content": "Pour creer un site SharePoint, connectez-vous a SharePoint, cliquez sur '+ Creer un site', choisissez un site d'equipe ou de communication, puis renseignez le nom du site et terminez la creation.",
+      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+    },
+    {
+      "id": "sp-site-permissions",
+      "title": "Gerer les droits d'un site SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "droits", "acces", "permissions", "membres", "autorisations", "donner acces", "partager site", "ajouter membre", "mon site"],
+      "content": "Pour donner acces a un site SharePoint, ouvrez le site, cliquez sur l'engrenage, entrez dans les autorisations du site, puis ajoutez ou modifiez les membres selon le niveau d'acces necessaire.",
+      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+    },
+    {
+      "id": "sp-doc-library",
+      "title": "Utiliser une bibliotheque de documents SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "bibliotheque", "documents", "versions", "metadonnees"],
+      "content": "Une bibliotheque de documents SharePoint permet de centraliser les fichiers d'une equipe. Il est recommande d'activer l'historique des versions, d'utiliser les metadonnees pour classer les documents et de partager des liens plutot que des copies locales pour eviter les doublons.",
+      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+    },
+    {
+      "id": "teams-meeting-best-practices",
+      "title": "Preparer une reunion Teams efficace",
+      "category": "teams",
+      "keywords": ["teams", "reunion", "visio", "meeting", "partage", "participants"],
+      "content": "Pour une reunion Teams efficace, planifiez l'ordre du jour dans l'invitation, verifiez le micro et la camera avant le debut, utilisez le partage d'ecran uniquement pour le bon contenu, et centralisez les fichiers du meeting dans l'onglet Fichiers ou dans le canal associe.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "teams-create-meeting",
+      "title": "Creer une reunion Teams",
+      "category": "teams",
+      "keywords": ["teams", "creer", "planifier", "reunion", "meeting", "calendrier"],
+      "content": "Pour creer une reunion Teams, ouvrez Teams, allez dans Calendrier, cliquez sur Nouvelle reunion, ajoutez le titre, les participants, la date et l'heure, puis envoyez l'invitation.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "teams-collaboration",
+      "title": "Organisation d'une equipe Teams",
+      "category": "teams",
+      "keywords": ["teams", "canaux", "equipe", "collaboration", "fichiers", "onglets"],
+      "content": "Une equipe Teams doit etre organisee par canaux thematiques plutot que par conversations melangees. Les fichiers partages dans un canal sont stockes dans SharePoint. Il faut limiter les canaux inutiles, nommer clairement les espaces et epingler les onglets importants pour les utilisateurs.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "onedrive-sync-troubleshooting",
+      "title": "Diagnostic d'une synchronisation OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "synchronisation", "nuage", "fichier", "pc", "erreur"],
+      "content": "Quand OneDrive ne synchronise plus, il faut verifier l'etat de l'icone dans la barre des taches, s'assurer qu'il reste de l'espace disque, confirmer que le chemin du fichier n'est pas trop long et relancer l'application OneDrive depuis ses parametres. Les conflits de nommage ou les caracteres interdits bloquent souvent la synchro.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-recover-file",
+      "title": "Recuperer un fichier supprime dans OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "recuperer", "restaurer", "fichier", "supprime", "corbeille"],
+      "content": "Pour recuperer un fichier supprime dans OneDrive, ouvrez OneDrive sur le web, allez dans la Corbeille, selectionnez le fichier voulu puis cliquez sur Restaurer.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-sharing",
+      "title": "Partager un fichier OneDrive en securite",
+      "category": "onedrive",
+      "keywords": ["onedrive", "partage", "lien", "modifier", "lecture", "securite"],
+      "content": "Pour partager un fichier OneDrive, il faut choisir si les destinataires peuvent modifier ou seulement lire, verifier si le lien est interne ou externe a l'entreprise et supprimer les partages devenus inutiles. Le partage par lien est a privilegier plutot que l'envoi de pieces jointes volumineuses.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "outlook-absence",
+      "title": "Configurer une absence dans Outlook",
+      "category": "outlook",
+      "keywords": ["outlook", "absence", "vacances", "reponse automatique", "mail"],
+      "content": "Dans Outlook, les reponses automatiques doivent comporter une periode de validite, un message interne clair et, si necessaire, une redirection vers un contact de remplacement. Pensez a indiquer la date de retour et la personne a contacter en urgence.",
+      "url": "https://support.microsoft.com/fr-fr/outlook"
+    },
+    {
+      "id": "outlook-signature",
+      "title": "Changer la signature Outlook",
+      "category": "outlook",
+      "keywords": ["outlook", "signature", "mail", "modifier", "logo"],
+      "content": "Pour changer votre signature Outlook, ouvrez un nouveau message, cliquez sur Signature puis sur Signatures, et modifiez ou creez la signature que vous voulez utiliser.",
+      "url": "https://support.microsoft.com/fr-fr/outlook"
+    },
+    {
+      "id": "m365-password-support",
+      "title": "Que faire en cas de probleme de mot de passe Microsoft 365",
+      "category": "support",
+      "keywords": ["mot de passe", "password", "connexion", "bloque", "support", "m365"],
+      "content": "En cas de probleme de mot de passe Microsoft 365, commencez par la reinitialisation libre-service depuis la page de connexion. Si le compte reste bloque ou si l'authentification multifacteur pose probleme, il faut contacter le support informatique avec le message d'erreur exact et l'heure du blocage.",
+      "url": "https://support.microsoft.com/fr-fr"
+    }
+  ]
+}

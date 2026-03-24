@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistant M365 Avancé</title>
+    <title>Assistant M365 Avance</title>
     <link rel="stylesheet" href="chat.css">
 </head>
 <body>
@@ -14,50 +14,47 @@
     </div>
 
     <div id="chat-window" class="chat-window hidden">
-        
         <div class="chat-header">
             <div class="header-top">
                 <div class="header-text">
                     <h3>Assistant & Formation M365</h3>
-                    <span class="status"> Toujours à votre écoute</span>
+                    <span class="status">Toujours a votre ecoute</span>
                 </div>
-                <button id="close-chat" class="close-btn">✕</button>
+                <button id="close-chat" class="close-btn">x</button>
             </div>
             <div class="tabs">
-                <button id="tab-chat" class="tab active"> Assistant IA</button>
-                <button id="tab-videos" class="tab">Tutoriels Vidéos</button>
+                <button id="tab-chat" class="tab active">Assistant IA</button>
+                <button id="tab-videos" class="tab">Tutoriels Videos</button>
             </div>
         </div>
 
         <div id="view-chat" class="view-container active-view">
-            
             <div id="categories-container" class="categories-container">
-                <p class="intro-text">Choisissez un sujet ou posez votre question en bas </p>
-                
+                <p class="intro-text">Choisissez un sujet ou posez votre question en bas</p>
+
                 <div class="category-block">
-                    <div class="cat-title"> Microsoft Teams</div>
-                    <button class="suggestion-btn">Comment planifier une réunion ?</button>
-                    <button class="suggestion-btn">Partager mon écran sur Teams</button>
+                    <div class="cat-title">Microsoft Teams</div>
+                    <button class="suggestion-btn">Comment planifier une reunion Teams ?</button>
+                    <button class="suggestion-btn">Partager mon ecran sur Teams</button>
                 </div>
 
                 <div class="category-block">
-                    <div class="cat-title"> SharePoint</div>
-                    <button class="suggestion-btn">Comment créer un site SharePoint ?</button>
-                    <button class="suggestion-btn">Comment donner l'accès à mon site ?</button>
+                    <div class="cat-title">SharePoint</div>
+                    <button class="suggestion-btn">Comment creer un site SharePoint ?</button>
+                    <button class="suggestion-btn">Comment donner acces a mon site SharePoint ?</button>
                 </div>
 
                 <div class="category-block">
-                    <div class="cat-title"> OneDrive</div>
-                    <button class="suggestion-btn">Comment partager un fichier lourd ?</button>
-                    <button class="suggestion-btn">Où est la corbeille OneDrive ?</button>
+                    <div class="cat-title">OneDrive</div>
+                    <button class="suggestion-btn">Comment partager un fichier OneDrive ?</button>
+                    <button class="suggestion-btn">Ou est la corbeille OneDrive ?</button>
                 </div>
             </div>
 
-            <div id="chat-messages" class="chat-messages">
-                </div>
+            <div id="chat-messages" class="chat-messages"></div>
 
             <div class="chat-input-container">
-                <input type="text" id="user-input" placeholder="Posez votre question à l'IA..." class="chat-input">
+                <input type="text" id="user-input" placeholder="Posez votre question a l'IA..." class="chat-input">
                 <button id="send-button" class="send-button">Envoyer</button>
             </div>
         </div>
@@ -68,15 +65,15 @@
                 <a href="https://support.microsoft.com/fr-fr/teams" target="_blank" class="video-card">
                     <div class="video-icon"></div>
                     <div class="video-info">
-                        <strong>Maîtriser Microsoft Teams en 5 min</strong>
-                        <span>Tutoriel vidéo officiel</span>
+                        <strong>Maitriser Microsoft Teams en 5 min</strong>
+                        <span>Tutoriel video officiel</span>
                     </div>
                 </a>
                 <a href="https://support.microsoft.com/fr-fr/sharepoint" target="_blank" class="video-card">
                     <div class="video-icon"></div>
                     <div class="video-info">
-                        <strong>Créer et gérer un site SharePoint</strong>
-                        <span>Formation complète</span>
+                        <strong>Creer et gerer un site SharePoint</strong>
+                        <span>Formation complete</span>
                     </div>
                 </a>
                 <a href="https://support.microsoft.com/fr-fr/onedrive" target="_blank" class="video-card">
@@ -88,8 +85,8 @@
                 </a>
             </div>
         </div>
-
     </div>
+
     <script src="chat.js"></script>
 </body>
 </html>

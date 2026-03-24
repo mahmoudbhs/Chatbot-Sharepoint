@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+MODELS/chatbot_artifacts.pkl
+DATA/user_memory.json
+.env

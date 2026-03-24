@@ -3,168 +3,289 @@
     {
       "tag": "salutations",
       "patterns": [
-        "Bonjour", "Salut", "Coucou", "Hello", "Bjr", "Slt", "Bonsoir", "Hey", "Yo", "Wesh",
-        "Est-ce que quelqu'un est là ?", "Tu es là ?", "Bot ?", "Cc", "Bonjour l'équipe"
+        "Bonjour",
+        "Salut",
+        "Coucou",
+        "Hello",
+        "Bjr",
+        "Slt",
+        "Bonsoir",
+        "Hey",
+        "Yo",
+        "Wesh",
+        "Est-ce que quelqu'un est la ?",
+        "Tu es la ?",
+        "Bot ?",
+        "Cc",
+        "Bonjour l'equipe"
       ],
       "responses": [
-        "Bonjour ! Je suis votre assistant virtuel M365. Comment puis-je vous aider aujourd'hui ? 👋",
+        "Bonjour ! Je suis votre assistant virtuel M365. Comment puis-je vous aider aujourd'hui ?",
         "Salut ! Que puis-je faire pour vous concernant Teams, SharePoint, Outlook ou OneDrive ?"
       ]
     },
     {
       "tag": "au_revoir",
       "patterns": [
-        "Au revoir", "Bye", "À plus", "A+", "Merci c'est tout", "Bonne journée", 
-        "Ciao", "A bientot", "merci a bientot", "tchao", "bonne soiree", "merci bye"
+        "Au revoir",
+        "Bye",
+        "A plus",
+        "A+",
+        "Merci c'est tout",
+        "Bonne journee",
+        "Ciao",
+        "A bientot",
+        "merci a bientot",
+        "tchao",
+        "bonne soiree",
+        "merci bye"
       ],
       "responses": [
-        "Au revoir ! N'hésitez pas si vous avez d'autres questions. Bonne journée ! ✨",
-        "À très bientôt ! Ravi d'avoir pu vous aider. 🤖"
+        "Au revoir ! N'hesitez pas si vous avez d'autres questions. Bonne journee !",
+        "A tres bientot ! Ravi d'avoir pu vous aider."
       ]
     },
     {
       "tag": "remerciements",
       "patterns": [
-        "Merci", "C'est super", "Parfait merci", "Super merci", "Génial", "Top", "C'est gentil", "Thanks"
+        "Merci",
+        "C'est super",
+        "Parfait merci",
+        "Super merci",
+        "Genial",
+        "Top",
+        "C'est gentil",
+        "Thanks"
       ],
       "responses": [
-        "Je t'en prie ! C'est mon travail. 😎",
+        "Je t'en prie ! C'est mon travail.",
         "Avec grand plaisir ! As-tu une autre question ?"
       ]
     },
     {
       "tag": "identite_bot",
       "patterns": [
-        "Qui es-tu ?", "Tu es qui ?", "Comment tu t'appelles ?", "T'es un robot ?", "T ki",
-        "Que fais-tu ?", "A quoi tu sers ?"
+        "Qui es-tu ?",
+        "Tu es qui ?",
+        "Comment tu t'appelles ?",
+        "T'es un robot ?",
+        "T ki",
+        "Que fais-tu ?",
+        "A quoi tu sers ?"
       ],
       "responses": [
-        "Je suis le Chatbot Assistant M365 ! Mon code a été développé avec soin pour vous aider avec Teams, SharePoint, OneDrive et plus encore. 💻"
+        "Je suis le Chatbot Assistant M365. Je peux vous aider sur Teams, SharePoint, OneDrive et Outlook."
       ]
     },
     {
       "tag": "sharepoint_creation",
       "patterns": [
-        "Comment créer un site SharePoint ?", "Je veux créer un site", "Nouveau site SharePoint",
-        "Créer un sharepoint", "cration site", "creer un site web", "faire un site equipe",
-        "comment je fai un sharepoint", "nouvo site sharepoint", "comment on fait un site"
+        "Comment creer un site SharePoint ?",
+        "Je veux creer un site",
+        "Nouveau site SharePoint",
+        "Creer un SharePoint",
+        "cration site",
+        "creer un site web",
+        "faire un site equipe",
+        "comment je fai un SharePoint",
+        "nouvo site SharePoint",
+        "comment on fait un site"
       ],
       "responses": [
-        "Pour créer un site SharePoint :\n1. Connectez-vous à SharePoint.\n2. Cliquez sur '+ Créer un site' en haut à gauche.\n3. Choisissez 'Site d'équipe' (collaboration) ou 'Site de communication' (information).\n4. Remplissez le nom et terminez ! 🚀"
+        "Pour creer un site SharePoint :\n1. Connectez-vous a SharePoint.\n2. Cliquez sur '+ Creer un site'.\n3. Choisissez 'Site d'equipe' ou 'Site de communication'.\n4. Renseignez le nom puis terminez."
       ]
     },
     {
       "tag": "sharepoint_partage",
       "patterns": [
-        "Comment partager un site SharePoint ?", "Partager mon site", "Ajouter des membres",
-        "Donner accès à SharePoint", "inviter des gens sur mon site", "partage sharepoint",
-        "komen partager le site", "doner les droits sharepoint", "ajouter collegue", "gerer les acces au site"
+        "Comment partager un site SharePoint ?",
+        "Partager mon site",
+        "Ajouter des membres",
+        "Donner acces a SharePoint",
+        "inviter des gens sur mon site",
+        "partage SharePoint",
+        "komen partager le site",
+        "doner les droits SharePoint",
+        "ajouter collegue",
+        "gerer les acces au site"
       ],
       "responses": [
-        "Pour donner accès à votre site SharePoint :\n1. Allez sur votre site.\n2. Cliquez sur l'engrenage ⚙️ en haut à droite.\n3. Sélectionnez 'Autorisations du site'.\n4. Cliquez sur 'Ajouter des membres' et tapez le nom de vos collègues. 🤝"
+        "Pour donner acces a votre site SharePoint :\n1. Ouvrez le site.\n2. Cliquez sur l'engrenage.\n3. Choisissez 'Autorisations du site'.\n4. Ajoutez les membres ou ajustez leurs droits."
       ]
     },
     {
       "tag": "sharepoint_suppression",
       "patterns": [
-        "Supprimer un site SharePoint", "Effacer mon site", "Fermer le sharepoint",
-        "comment supprimer mon sharepoint", "detruire site", "je veux effacer le site"
+        "Supprimer un site SharePoint",
+        "Effacer mon site",
+        "Fermer le SharePoint",
+        "comment supprimer mon SharePoint",
+        "detruire site",
+        "je veux effacer le site"
       ],
       "responses": [
-        "Pour supprimer un site SharePoint (attention, c'est définitif !) :\n1. Allez sur le site.\n2. Cliquez sur l'engrenage ⚙️ > 'Informations sur le site'.\n3. Tout en bas, cliquez sur 'Supprimer le site'.\n⚠️ Note: Vous devez être propriétaire du site."
+        "Pour supprimer un site SharePoint :\n1. Ouvrez le site.\n2. Cliquez sur l'engrenage puis 'Informations sur le site'.\n3. Cliquez sur 'Supprimer le site'.\nAttention : vous devez etre proprietaire du site."
       ]
     },
     {
       "tag": "teams_reunion",
       "patterns": [
-        "Comment faire une réunion Teams ?", "Créer réunion", "Planifier réunion Teams",
-        "Faire un call", "organiser une visio", "planifier un point", "programmer une reunion",
-        "creer un meeting", "faire un teams", "inviter a une reunion teams"
+        "Comment faire une reunion Teams ?",
+        "Creer reunion",
+        "Planifier reunion Teams",
+        "Faire un call",
+        "organiser une visio",
+        "planifier un point",
+        "programmer une reunion",
+        "creer un meeting",
+        "faire un Teams",
+        "inviter a une reunion Teams"
       ],
       "responses": [
-        "Pour planifier une réunion Teams :\n1. Ouvrez l'application Teams.\n2. Allez dans l'onglet 'Calendrier'.\n3. Cliquez sur 'Nouvelle réunion' (en haut à droite).\n4. Ajoutez le titre, les participants et l'heure, puis 'Envoyer'. 📅"
+        "Pour planifier une reunion Teams :\n1. Ouvrez Teams.\n2. Allez dans 'Calendrier'.\n3. Cliquez sur 'Nouvelle reunion'.\n4. Ajoutez le titre, les participants et l'heure puis envoyez."
       ]
     },
     {
       "tag": "teams_partage_ecran",
       "patterns": [
-        "Partager mon écran sur teams", "comment montrer mon ecran", "partage d'ecran",
-        "j'arrive pas a partager mon ecran", "montrer ma presentation teams", "partager fenetre teams"
+        "Partager mon ecran sur Teams",
+        "comment montrer mon ecran",
+        "partage d'ecran",
+        "j'arrive pas a partager mon ecran",
+        "montrer ma presentation Teams",
+        "partager fenetre Teams"
       ],
       "responses": [
-        "Pour partager votre écran dans une réunion Teams :\n1. Cliquez sur l'icône 'Partager' (le carré avec une flèche vers le haut) dans la barre de contrôle de la réunion.\n2. Choisissez 'Écran entier' (pour tout montrer) ou 'Fenêtre' (pour une seule application). 🖥️"
+        "Pour partager votre ecran dans Teams :\n1. Pendant la reunion, cliquez sur 'Partager'.\n2. Choisissez ecran entier ou une fenetre.\n3. Verifiez que le bon contenu est visible avant de confirmer."
       ]
     },
     {
       "tag": "teams_equipe",
       "patterns": [
-        "Créer une équipe Teams", "Faire un nouveau groupe teams", "Nouvelle équipe",
-        "creer canal teams", "comment creer une team", "ajouter une equipe", "nouveau groupe de travail", "creer un salon teams"
+        "Creer une equipe Teams",
+        "Faire un nouveau groupe Teams",
+        "Nouvelle equipe",
+        "creer canal Teams",
+        "comment creer une team",
+        "ajouter une equipe",
+        "nouveau groupe de travail",
+        "creer un salon Teams"
       ],
       "responses": [
-        "Pour créer une nouvelle équipe sur Teams :\n1. Allez dans l'onglet 'Équipes'.\n2. En bas de la liste (ou en haut à droite), cliquez sur 'Rejoindre ou créer une équipe'.\n3. Cliquez sur 'Créer une équipe' et suivez les instructions. 👥"
+        "Pour creer une equipe dans Teams :\n1. Allez dans l'onglet 'Equipes'.\n2. Cliquez sur 'Rejoindre ou creer une equipe'.\n3. Choisissez 'Creer une equipe' puis suivez les etapes."
       ]
     },
     {
       "tag": "onedrive_partage",
       "patterns": [
-        "Partager un fichier OneDrive", "Envoyer un lien onedrive", "Donner accès à un document",
-        "partager un word", "comment envoyer un fichier lourd", "lien de partage",
-        "partager fichier", "donner droit lecture", "envoyer doc onedrive"
+        "Partager un fichier OneDrive",
+        "Envoyer un lien OneDrive",
+        "Donner acces a un document",
+        "partager un Word",
+        "comment envoyer un fichier lourd",
+        "lien de partage",
+        "partager fichier",
+        "donner droit lecture",
+        "envoyer doc OneDrive"
       ],
       "responses": [
-        "Pour partager un fichier depuis OneDrive :\n1. Faites un clic droit sur votre fichier.\n2. Cliquez sur 'Partager' .\n3. Entrez l'adresse email de la personne ou copiez le lien.\n4. Choisissez si elle peut 'Modifier' ou juste 'Consulter'."
+        "Pour partager un fichier OneDrive :\n1. Faites un clic droit sur le fichier.\n2. Cliquez sur 'Partager'.\n3. Entrez l'email ou copiez le lien.\n4. Choisissez lecture seule ou modification."
       ]
     },
     {
       "tag": "onedrive_synchro",
       "patterns": [
-        "Mon OneDrive ne se synchronise pas", "Problème de synchronisation", "OneDrive bug",
-        "fichiers pas à jour", "synchro bloquée", "erreur onedrive", "onedrive beug",
-        "ca charge pas", "mes fichiers n'apparaissent pas sur mon pc", "croix rouge onedrive"
+        "Mon OneDrive ne se synchronise pas",
+        "Probleme de synchronisation",
+        "OneDrive bug",
+        "fichiers pas a jour",
+        "synchro bloquee",
+        "erreur OneDrive",
+        "OneDrive beug",
+        "ca charge pas",
+        "mes fichiers n'apparaissent pas sur mon pc",
+        "croix rouge OneDrive"
       ],
       "responses": [
-        "Si OneDrive ne se synchronise pas :\n1. Regardez l'icône du nuage bleu près de l'heure en bas à droite.\n2. Cliquez dessus, allez dans l'engrenage (Aide et paramètres).\n3. Cliquez sur 'Suspendre la synchronisation' puis reprenez-la, ou redémarrez l'application. 🔄"
+        "Si OneDrive ne se synchronise pas :\n1. Regardez l'icone du nuage.\n2. Ouvrez 'Aide et parametres'.\n3. Suspendez puis reprenez la synchronisation, ou redemarrez OneDrive."
       ]
     },
     {
       "tag": "onedrive_corbeille",
       "patterns": [
-        "J'ai supprimé un fichier par erreur", "Récupérer fichier supprimé", "Où est la corbeille onedrive",
-        "restaurer document", "fichier perdu", "jai perdu mon fichier", "retrouver un word effacé", "effacement erreur"
+        "J'ai supprime un fichier par erreur",
+        "Recuperer fichier supprime",
+        "Ou est la corbeille OneDrive",
+        "restaurer document",
+        "fichier perdu",
+        "jai perdu mon fichier",
+        "retrouver un Word efface",
+        "effacement erreur"
       ],
       "responses": [
-        "Pas de panique ! \n1. Allez sur OneDrive en version Web (sur internet).\n2. Cliquez sur 'Corbeille' dans le menu de gauche.\n3. Sélectionnez votre fichier et cliquez sur 'Restaurer'. Il reviendra à sa place initiale ! 🗑️➡️📄"
+        "Pour recuperer un fichier supprime dans OneDrive :\n1. Ouvrez OneDrive web.\n2. Cliquez sur 'Corbeille'.\n3. Selectionnez le fichier.\n4. Cliquez sur 'Restaurer'."
       ]
     },
     {
       "tag": "outlook_absence",
       "patterns": [
-        "Mettre un message d'absence", "réponse automatique outlook", "je pars en congés",
-        "comment dire que je suis en vacances", "out of office", "message vacances mail", "reponse auto"
+        "Mettre un message d'absence",
+        "reponse automatique Outlook",
+        "je pars en conges",
+        "comment dire que je suis en vacances",
+        "out of office",
+        "message vacances mail",
+        "reponse auto"
       ],
       "responses": [
-        "Pour configurer vos réponses automatiques d'absence sur Outlook :\n1. Cliquez sur 'Fichier' (en haut à gauche).\n2. Cliquez sur 'Réponses automatiques (absence du bureau)'.\n3. Cochez 'Envoyer des réponses automatiques', définissez les dates et tapez votre message. 🏖️"
+        "Pour configurer un message d'absence Outlook :\n1. Ouvrez Outlook.\n2. Allez dans 'Fichier'.\n3. Cliquez sur 'Reponses automatiques'.\n4. Definissez les dates et votre message."
       ]
     },
     {
       "tag": "outlook_signature",
       "patterns": [
-        "Changer ma signature mail", "modifier la signature", "ajouter un logo signature",
-        "comment faire une signature outlook", "bas de mail automatique"
+        "Changer ma signature mail",
+        "modifier la signature",
+        "ajouter un logo signature",
+        "comment faire une signature Outlook",
+        "bas de mail automatique"
       ],
       "responses": [
-        "Pour modifier votre signature Outlook :\n1. Créez un 'Nouveau message'.\n2. Dans la barre du haut, cliquez sur 'Une signature' puis 'Signatures...'.\n3. Ici vous pouvez créer, modifier ou ajouter des images à votre signature ! "
+        "Pour modifier votre signature Outlook :\n1. Creez un nouveau message.\n2. Cliquez sur 'Signature' puis 'Signatures'.\n3. Modifiez ou creez la signature voulue."
+      ]
+    },
+    {
+      "tag": "get_guide",
+      "patterns": [
+        "Montre-moi un guide",
+        "J'ai besoin d'aide",
+        "Fiche pratique",
+        "Documentation",
+        "Tutoriel",
+        "Guide d'utilisation",
+        "Besoin d'un guide",
+        "documentation disponible"
+      ],
+      "responses": [
+        "Je vais chercher les guides disponibles pour vous.",
+        "Je vous affiche la documentation disponible.",
+        "Je regarde quels guides peuvent vous aider."
       ]
     },
     {
       "tag": "mot_de_passe",
       "patterns": [
-        "Mot de passe oublié", "Changer mon mdp", "reset password", "mdp bloqué", 
-        "je n'arrive plus a me connecter", "mon mot de passe a expiré", "changer mdo", "renouveler mdp"
+        "Mot de passe oublie",
+        "Changer mon mdp",
+        "reset password",
+        "mdp bloque",
+        "je n'arrive plus a me connecter",
+        "mon mot de passe a expire",
+        "changer mdo",
+        "renouveler mdp"
       ],
       "responses": [
-        "Pour tout problème de mot de passe M365 :\nVous pouvez réinitialiser votre mot de passe vous-même en cliquant sur 'Mot de passe oublié ?' sur la page de connexion Microsoft. Si cela ne fonctionne pas, veuillez contacter le support informatique (Helpdesk). "
+        "Pour un probleme de mot de passe M365 : utilisez 'Mot de passe oublie ?' sur la page de connexion Microsoft. Si besoin, contactez le support informatique."
       ]
     }
   ]

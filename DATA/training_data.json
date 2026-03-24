@@ -1,144 +1,174 @@
 {
   "training_data": [
     {
-      "intent": "greeting",
+      "intent": "salutations",
       "examples": [
         "Bonjour",
         "Salut",
-        "Hello",
         "Coucou",
+        "Hello",
+        "Bjr",
+        "Slt",
         "Bonsoir",
         "Hey",
         "Yo",
-        "Salutations",
-        "Bonne journée",
-        "Bienvenue"
+        "Wesh",
+        "Bot ?",
+        "Tu es la ?"
       ]
     },
     {
-      "intent": "goodbye",
+      "intent": "au_revoir",
       "examples": [
         "Au revoir",
         "Bye",
-        "À plus",
-        "À bientôt",
-        "Merci au revoir",
-        "Salut bye",
+        "A plus",
+        "A bientot",
+        "Merci c'est tout",
+        "Bonne journee",
         "Ciao",
-        "À la prochaine",
-        "Adieu",
-        "Bonne continuation"
+        "merci bye"
       ]
     },
     {
-      "intent": "thanks",
+      "intent": "remerciements",
       "examples": [
         "Merci",
-        "Merci beaucoup",
-        "Thanks",
-        "Merci bien",
-        "Super merci",
+        "C'est super",
         "Parfait merci",
+        "Super merci",
+        "Genial",
+        "Top",
         "C'est gentil",
-        "Je te remercie",
-        "Merci infiniment"
+        "Thanks"
       ]
     },
     {
-      "intent": "sharepoint_usage",
+      "intent": "identite_bot",
       "examples": [
-        "Comment utiliser SharePoint",
-        "C'est quoi SharePoint",
-        "À quoi sert SharePoint",
-        "Qu'est-ce que SharePoint",
-        "Comment partager des documents sur SharePoint",
-        "Comment créer un site SharePoint",
-        "SharePoint c'est quoi",
-        "Aide SharePoint",
-        "Utilisation SharePoint",
-        "Tutoriel SharePoint",
-        "Apprendre SharePoint",
-        "Débuter avec SharePoint",
-        "SharePoint pour les nuls",
-        "Guide SharePoint"
+        "Qui es-tu ?",
+        "Tu es qui ?",
+        "Comment tu t'appelles ?",
+        "T'es un robot ?",
+        "Que fais-tu ?",
+        "A quoi tu sers ?"
       ]
     },
     {
-      "intent": "sharepoint_documents",
+      "intent": "sharepoint_creation",
       "examples": [
-        "Comment ajouter un document SharePoint",
-        "Télécharger un fichier SharePoint",
-        "Uploader dans SharePoint",
-        "Partager un fichier SharePoint",
-        "Synchroniser SharePoint",
-        "Modifier un document SharePoint",
-        "Supprimer un document SharePoint",
-        "Déplacer un fichier SharePoint",
-        "Copier un document SharePoint",
-        "Versionning SharePoint"
+        "Comment creer un site SharePoint ?",
+        "Je veux creer un site",
+        "Nouveau site SharePoint",
+        "Creer un SharePoint",
+        "faire un site equipe",
+        "comment on fait un site"
       ]
     },
     {
-      "intent": "teams_usage",
+      "intent": "sharepoint_partage",
       "examples": [
-        "Comment utiliser Teams",
-        "C'est quoi Teams",
-        "À quoi sert Teams",
-        "Comment créer une équipe Teams",
-        "Comment faire une réunion Teams",
-        "Teams c'est quoi",
-        "Aide Teams",
-        "Tutoriel Teams",
-        "Microsoft Teams",
-        "Apprendre Teams",
-        "Débuter avec Teams",
-        "Guide Teams"
+        "Comment partager un site SharePoint ?",
+        "Partager mon site",
+        "Ajouter des membres",
+        "Donner acces a SharePoint",
+        "inviter des gens sur mon site",
+        "gerer les acces au site"
       ]
     },
     {
-      "intent": "teams_meeting",
+      "intent": "sharepoint_suppression",
       "examples": [
-        "Planifier une réunion Teams",
-        "Créer une réunion Teams",
-        "Faire un appel Teams",
-        "Organiser une visio Teams",
-        "Lancer une réunion Teams",
-        "Démarrer un meeting Teams",
-        "Inviter à une réunion Teams",
-        "Partager mon écran Teams",
-        "Enregistrer une réunion Teams",
-        "Programmer une visioconférence"
+        "Supprimer un site SharePoint",
+        "Effacer mon site",
+        "Fermer le SharePoint",
+        "comment supprimer mon SharePoint",
+        "je veux effacer le site"
       ]
     },
     {
-      "intent": "onedrive_usage",
+      "intent": "teams_reunion",
       "examples": [
-        "Comment utiliser OneDrive",
-        "C'est quoi OneDrive",
-        "À quoi sert OneDrive",
-        "Comment synchroniser OneDrive",
-        "Où sont mes fichiers OneDrive",
-        "OneDrive c'est quoi",
-        "Aide OneDrive",
-        "Tutoriel OneDrive",
-        "Apprendre OneDrive",
-        "Débuter avec OneDrive",
-        "Guide OneDrive",
-        "Mon cloud OneDrive"
+        "Comment faire une reunion Teams ?",
+        "Creer reunion",
+        "Planifier reunion Teams",
+        "Faire un call",
+        "organiser une visio",
+        "inviter a une reunion Teams"
       ]
     },
     {
-      "intent": "onedrive_sync",
+      "intent": "teams_partage_ecran",
       "examples": [
-        "Synchroniser OneDrive",
-        "Configurer OneDrive",
-        "Installer OneDrive",
-        "OneDrive ne synchronise pas",
-        "Problème synchronisation OneDrive",
-        "OneDrive ne fonctionne pas",
-        "Erreur OneDrive",
-        "OneDrive bloqué",
-        "Réparer OneDrive"
+        "Partager mon ecran sur Teams",
+        "comment montrer mon ecran",
+        "partage d'ecran",
+        "j'arrive pas a partager mon ecran",
+        "partager fenetre Teams"
+      ]
+    },
+    {
+      "intent": "teams_equipe",
+      "examples": [
+        "Creer une equipe Teams",
+        "Faire un nouveau groupe Teams",
+        "Nouvelle equipe",
+        "comment creer une team",
+        "nouveau groupe de travail",
+        "creer un salon Teams"
+      ]
+    },
+    {
+      "intent": "onedrive_partage",
+      "examples": [
+        "Partager un fichier OneDrive",
+        "Envoyer un lien OneDrive",
+        "Donner acces a un document",
+        "comment envoyer un fichier lourd",
+        "lien de partage",
+        "envoyer doc OneDrive"
+      ]
+    },
+    {
+      "intent": "onedrive_synchro",
+      "examples": [
+        "Mon OneDrive ne se synchronise pas",
+        "Probleme de synchronisation",
+        "OneDrive bug",
+        "fichiers pas a jour",
+        "synchro bloquee",
+        "croix rouge OneDrive"
+      ]
+    },
+    {
+      "intent": "onedrive_corbeille",
+      "examples": [
+        "J'ai supprime un fichier par erreur",
+        "Recuperer fichier supprime",
+        "Ou est la corbeille OneDrive",
+        "restaurer document",
+        "fichier perdu",
+        "retrouver un word efface"
+      ]
+    },
+    {
+      "intent": "outlook_absence",
+      "examples": [
+        "Mettre un message d'absence",
+        "reponse automatique Outlook",
+        "je pars en conges",
+        "out of office",
+        "message vacances mail"
+      ]
+    },
+    {
+      "intent": "outlook_signature",
+      "examples": [
+        "Changer ma signature mail",
+        "modifier la signature",
+        "ajouter un logo signature",
+        "comment faire une signature Outlook",
+        "bas de mail automatique"
       ]
     },
     {
@@ -150,95 +180,27 @@
         "Documentation",
         "Tutoriel",
         "Guide d'utilisation",
-        "Aide",
-        "Comment faire",
-        "Besoin d'un guide",
-        "Documentation disponible",
-        "Voir les guides",
-        "Liste des tutoriels",
-        "Ressources disponibles"
+        "Besoin d'un guide"
       ]
     },
     {
-      "intent": "collaboration",
+      "intent": "mot_de_passe",
       "examples": [
-        "Travailler en équipe",
-        "Collaboration",
-        "Partager avec collègues",
-        "Travail collaboratif",
-        "Coédition",
-        "Modifier ensemble",
-        "Travailler à plusieurs",
-        "Travail d'équipe",
-        "Collaboration en ligne",
-        "Partage collaboratif"
-      ]
-    },
-    {
-      "intent": "permissions",
-      "examples": [
-        "Gérer les permissions",
-        "Droits d'accès",
-        "Qui peut voir",
-        "Modifier les permissions",
-        "Partage sécurisé",
-        "Contrôle d'accès",
-        "Autorisation",
-        "Donner accès",
-        "Retirer des droits",
-        "Permissions de partage"
-      ]
-    },
-    {
-      "intent": "search",
-      "examples": [
-        "Rechercher un document",
-        "Trouver un fichier",
-        "Chercher dans SharePoint",
-        "Comment rechercher",
-        "Où est mon document",
-        "Retrouver un fichier",
-        "Fonction recherche",
-        "Je ne trouve pas mon fichier",
-        "Localiser un document"
-      ]
-    },
-    {
-      "intent": "mobile",
-      "examples": [
-        "Application mobile",
-        "Teams sur mobile",
-        "OneDrive sur téléphone",
-        "Smartphone",
-        "Tablette",
-        "App mobile M365",
-        "Version mobile",
-        "Utiliser sur téléphone",
-        "Télécharger l'app",
-        "Mobile Teams"
-      ]
-    },
-    {
-      "intent": "help_general",
-      "examples": [
-        "Aide",
-        "Help",
-        "Je suis perdu",
-        "Que peux-tu faire",
-        "Comment ça marche",
-        "Qu'est-ce que tu peux faire",
-        "Fonctionnalités",
-        "Commandes disponibles",
-        "À quoi tu sers",
-        "Présente-toi"
+        "Mot de passe oublie",
+        "Changer mon mdp",
+        "reset password",
+        "mdp bloque",
+        "je n'arrive plus a me connecter",
+        "mon mot de passe a expire"
       ]
     }
   ],
   "metadata": {
-    "version": "1.0",
-    "last_updated": "2026-02-04",
-    "total_intents": 15,
+    "version": "2.0",
+    "last_updated": "2026-03-24",
+    "total_intents": 17,
     "language": "fr",
-    "domain": "Microsoft 365"
+    "domain": "Microsoft 365",
+    "source_of_truth": "training_data.json + intents.json"
   }
 }

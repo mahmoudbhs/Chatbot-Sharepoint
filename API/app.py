@@ -1,52 +1,58 @@
-from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS
-import sys
 import os
+import sys
 
-# Ajouter le chemin parent pour importer le chatbot sans erreur
+from flask import Flask, jsonify, render_template, request
+from flask_cors import CORS
+
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from API.chatbot import chatbot_response
+from API.chatbot import chatbot_reply  # noqa: E402
 
-app = Flask(__name__, 
-            template_folder='../FRONTEND',
-            static_folder='../FRONTEND',
-            static_url_path='') # Permet d'accéder aux fichiers statiques à la racine
-CORS(app)  # Activer CORS pour toutes les routes
 
-@app.route('/')
+app = Flask(
+    __name__,
+    template_folder="../FRONTEND",
+    static_folder="../FRONTEND",
+    static_url_path="",
+)
+CORS(app)
+
+
+@app.route("/")
 def home():
-    """Page d'accueil du chatbot"""
-    return render_template('chat.html')
+    return render_template("chat.html")
 
-@app.route('/api/chat', methods=['POST'])
+
+@app.route("/api/chat", methods=["POST"])
 def chat():
-    """Endpoint pour recevoir et traiter les messages"""
     try:
-        data = request.get_json()
-        message = data.get('message', '')
-        
-        if not message:
-            return jsonify({'error': 'Message vide'}), 400
-        
-        # Obtenir la réponse de l'IA
-        response = chatbot_response(message)
-        
-        return jsonify({
-            'response': response,
-            'status': 'success'
-        })
-    
-    except Exception as e:
-        print(f"Erreur API: {e}")
-        return jsonify({
-            'error': str(e),
-            'status': 'error'
-        }), 500
+        data = request.get_json(silent=True) or {}
+        message = str(data.get("message", "")).strip()
+        session_id = str(data.get("session_id", "default")).strip() or "default"
 
-if __name__ == '__main__':
-    print("\n" + "="*50)
-    print("Démarrage de l'API Assistant M365...")
-    print(" Accédez au chatbot sur : http://localhost:5000")
-    print("="*50 + "\n")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+        if not message:
+            return jsonify({"error": "Message vide", "status": "error"}), 400
+
+        reply = chatbot_reply(message, session_id=session_id)
+        return jsonify(
+            {
+                "response": reply["response"],
+                "intent": reply["intent"],
+                "confidence": round(float(reply["confidence"]), 4),
+                "matched_pattern": reply["matched_pattern"],
+                "quick_replies": reply["quick_replies"],
+                "status": "success",
+            }
+        )
+    except Exception as exc:
+        print(f"Erreur API: {exc}")
+        return jsonify({"error": str(exc), "status": "error"}), 500
+
+
+if __name__ == "__main__":
+    print("\n" + "=" * 50)
+    print("Demarrage de l'API Assistant M365...")
+    print("Accedez au chatbot sur : http://localhost:5000")
+    print("=" * 50 + "\n")
+    app.run(debug=True, host="0.0.0.0", port=5000)
