@@ -87,27 +87,7 @@ http://localhost:5000
 python -m unittest discover -s TESTS -p "test_*.py" -v
 ```
 
-## Configuration
 
-Le fichier `.env` est optionnel. Ne pousse jamais ce fichier sur GitHub.
-
-Exemple de variables disponibles dans [`.env.example`](../.env.example) :
-
-```env
-SHAREPOINT_SITE_URL=https://your-tenant.sharepoint.com/sites/your-site
-SHAREPOINT_CLIENT_ID=your-app-client-id
-SHAREPOINT_CLIENT_SECRET=your-app-client-secret
-SHAREPOINT_FAQ_LIST=ChatbotFAQ
-SHAREPOINT_GUIDES_LIST=ChatbotGuides
-
-LLM_ENABLED=false
-LLM_PROVIDER=openai
-LLM_BASE_URL=https://api.openai.com/v1
-OPENAI_API_KEY=your-openai-api-key
-OPENAI_MODEL=gpt-4o-mini
-LLM_TIMEOUT_SECONDS=30
-LLM_STRATEGY=rewrite
-```
 
 ## Sources de reponse
 
