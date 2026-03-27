@@ -6,6 +6,8 @@ from typing import List
 
 from dotenv import load_dotenv
 
+from API.graph_connector import GraphConnector
+
 try:
     from office365.runtime.auth.client_credential import ClientCredential
     from office365.sharepoint.client_context import ClientContext
@@ -38,10 +40,14 @@ class SharePointConnector:
         self.client_secret = os.getenv("SHAREPOINT_CLIENT_SECRET", "").strip()
         self.faq_list_name = os.getenv("SHAREPOINT_FAQ_LIST", "ChatbotFAQ").strip()
         self.guides_list_name = os.getenv("SHAREPOINT_GUIDES_LIST", "ChatbotGuides").strip()
+        self.graph_connector = GraphConnector()
         self.documents = self._load_local_documents()
+        self.graph_documents_cache: List[dict] = []
 
         if self.is_live_configured:
             print("Connecteur SharePoint initialise (Mode Live si accessible)")
+        elif self.graph_connector.is_configured:
+            print("Connecteur SharePoint initialise (Mode Graph + base locale)")
         else:
             print("Connecteur SharePoint initialise (Base locale + fallback)")
 
@@ -59,6 +65,24 @@ class SharePointConnector:
         with open(KNOWLEDGE_PATH, "r", encoding="utf-8") as file:
             payload = json.load(file)
         return payload.get("documents", [])
+
+    def _load_graph_documents(self) -> List[dict]:
+        if self.graph_documents_cache:
+            return self.graph_documents_cache
+
+        self.graph_documents_cache = self.graph_connector.fetch_knowledge_documents()
+        return self.graph_documents_cache
+
+    def _all_documents(self) -> List[dict]:
+        return self.documents + self._load_graph_documents()
+
+    def get_runtime_status(self) -> dict:
+        return {
+            "sharepoint_live_configured": self.is_live_configured,
+            "graph": self.graph_connector.get_status(),
+            "local_documents": len(self.documents),
+            "graph_documents": len(self._load_graph_documents()) if self.graph_connector.is_configured else 0,
+        }
 
     def _get_context(self):
         if not self.is_live_configured:
@@ -122,7 +146,7 @@ class SharePointConnector:
                 "url": document["url"],
                 "category": document["category"],
             }
-            for document in self.documents[:5]
+            for document in self._all_documents()[:5]
         ]
 
     def get_faq_items(self) -> List[dict]:
@@ -146,7 +170,7 @@ class SharePointConnector:
                 "title": document["title"],
                 "url": document["url"],
             }
-            for document in self.documents
+            for document in self._all_documents()
         ]
 
     def search_knowledge(self, query: str, limit: int = 3) -> List[dict]:
@@ -157,7 +181,13 @@ class SharePointConnector:
         query_tokens = set(normalized_query.split())
         results = []
 
-        for document in self.documents:
+        for document in self._all_documents():
+            normalized_title = normalize_text(document.get("title", ""))
+            normalized_content = normalize_text(document.get("content", ""))
+            normalized_category = normalize_text(document.get("category", ""))
+            normalized_keywords = [
+                normalize_text(keyword) for keyword in document.get("keywords", []) if keyword
+            ]
             haystack = " ".join(
                 [
                     document.get("title", ""),
@@ -174,8 +204,22 @@ class SharePointConnector:
                 continue
 
             score = overlap / max(len(query_tokens), 1)
-            if document.get("category") and normalize_text(document["category"]) in normalized_query:
+            if normalized_category and normalized_category in normalized_query:
                 score += 0.2
+
+            title_overlap = len(query_tokens & set(normalized_title.split()))
+            score += title_overlap * 0.08
+
+            for keyword in normalized_keywords:
+                keyword_tokens = keyword.split()
+                if keyword and keyword in normalized_query:
+                    score += 0.35 if len(keyword_tokens) > 1 else 0.15
+
+            if normalized_query in normalized_title:
+                score += 0.35
+
+            if normalized_query in normalized_content:
+                score += 0.15
 
             results.append(
                 {
@@ -225,7 +269,7 @@ class SharePointConnector:
     def get_documents_by_category(self, category: str, limit: int = 4) -> List[dict]:
         normalized_category = normalize_text(category)
         matches = []
-        for document in self.documents:
+        for document in self._all_documents():
             if normalize_text(document.get("category", "")) == normalized_category:
                 matches.append(document)
             if len(matches) >= limit:

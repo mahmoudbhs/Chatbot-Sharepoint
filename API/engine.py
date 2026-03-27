@@ -192,6 +192,22 @@ class ChatbotEngine:
             "onedrive": {"onedrive", "one drive", "projet onedrive", "fichier onedrive"},
             "outlook": {"outlook", "mail outlook", "boite mail"},
         }
+        self.knowledge_priority_keywords = {
+            "naviguer",
+            "navigation",
+            "recherche",
+            "chercher",
+            "qui a acces",
+            "gerer l acces",
+            "gerer l'acces",
+            "partager un fichier dans teams",
+            "joindre",
+            "canal",
+            "conversation",
+            "ajouter un document",
+            "glisser deposer",
+            "etat de synchronisation",
+        }
         self.source_required_intents = set(self.procedural_intents)
         self.reliable_answer_prompts = [
             "Je prefere ne pas te donner une indication hasardeuse. Je n'ai pas encore de source assez fiable pour repondre precisement a cette demande.",
@@ -402,6 +418,48 @@ class ChatbotEngine:
             return self.topic_only_prompts[normalized_message]
         return None
 
+    def _is_broad_topic_request(
+        self,
+        normalized_message: str,
+        explicit_topic: Optional[str],
+    ) -> bool:
+        if not explicit_topic:
+            return False
+
+        generic_prefixes = (
+            "dis moi sur ",
+            "dis moi de ",
+            "parle moi de ",
+            "parle moi sur ",
+            "je veux des infos sur ",
+            "je veux des informations sur ",
+            "explique moi ",
+            "explique moi sur ",
+            "je veux savoir sur ",
+            "raconte moi ",
+        )
+        if normalized_message.startswith(generic_prefixes):
+            return True
+
+        generic_tokens = {
+            "dis",
+            "moi",
+            "sur",
+            "de",
+            "parle",
+            "explique",
+            "veux",
+            "infos",
+            "informations",
+            "savoir",
+            "raconte",
+        }
+        tokens = set(normalized_message.split())
+        topic_tokens = set(explicit_topic.split())
+
+        non_topic_tokens = tokens - topic_tokens
+        return bool(non_topic_tokens) and non_topic_tokens <= generic_tokens
+
     def _conversation_follow_up(self, normalized_message: str, session_id: str) -> Optional[str]:
         state = self._get_session(session_id)
         last_intent = state.get("last_intent")
@@ -579,6 +637,27 @@ class ChatbotEngine:
                 titles.append(title)
         return titles[:4]
 
+    def _should_prefer_knowledge(
+        self,
+        normalized_message: str,
+        prediction: dict,
+        knowledge_reply: Optional[dict],
+    ) -> bool:
+        if not knowledge_reply:
+            return False
+
+        if knowledge_reply["knowledge_score"] >= 0.7:
+            return True
+
+        for keyword in self.knowledge_priority_keywords:
+            if keyword in normalized_message:
+                return True
+
+        if prediction["intent"] not in self.procedural_intents:
+            return True
+
+        return False
+
     def _load_or_train_bundle(self) -> dict:
         if os.path.exists(ARTIFACT_PATH):
             with open(ARTIFACT_PATH, "rb") as file:
@@ -616,6 +695,8 @@ class ChatbotEngine:
     def _expand_with_context(self, message: str, session_id: str) -> str:
         state = self._get_session(session_id)
         last_intent = state.get("last_intent")
+        last_topic = state.get("last_topic")
+        awaiting_clarification = state.get("awaiting_clarification", False)
         normalized_message = normalize_text(message)
         explicit_topic = self._extract_explicit_topic(normalized_message)
 
@@ -627,6 +708,30 @@ class ChatbotEngine:
 
         if len(normalized_message.split()) > 4:
             return message
+
+        clarification_fragments = {
+            "les bonnes pratique",
+            "les bonnes pratiques",
+            "bonne pratique",
+            "bonnes pratiques",
+            "les droits",
+            "les acces",
+            "l acces",
+            "l'acces",
+            "la synchro",
+            "la synchronisation",
+            "la navigation",
+            "la recherche",
+            "le partage",
+            "les versions",
+            "l historique",
+            "l'historique",
+        }
+        if awaiting_clarification and last_topic:
+            if normalized_message in clarification_fragments:
+                return f"{last_topic} {message}"
+            if len(normalized_message.split()) <= 3 and not explicit_topic:
+                return f"{last_topic} {message}"
 
         follow_up_markers = {
             "et",
@@ -733,6 +838,9 @@ class ChatbotEngine:
         if self._is_incomplete_request(normalized_message):
             response = random.choice(self.incomplete_sentence_prompts)
             final_response = self._finalize_response(session_id, response, message)
+            state["last_intent"] = "clarification"
+            state["last_message"] = message
+            state["awaiting_clarification"] = True
             self._remember_turn(session_id, "assistant", final_response)
             return {
                 "response": final_response,
@@ -752,7 +860,38 @@ class ChatbotEngine:
                     message,
                     knowledge_titles=self._knowledge_redirects(explicit_topic, category=explicit_topic),
                 )
+                state["last_intent"] = "clarification"
+                state["last_message"] = message
                 state["last_topic"] = explicit_topic
+                state["awaiting_clarification"] = True
+                self.memory_store.remember_topic(
+                    session_id,
+                    explicit_topic,
+                    intent="clarification",
+                    message=message,
+                )
+                self._remember_turn(session_id, "assistant", final_response)
+                return {
+                    "response": final_response,
+                    "intent": "clarification",
+                    "confidence": 0.98,
+                    "matched_pattern": None,
+                    "quick_replies": self.quick_replies,
+                }
+
+        if self._is_broad_topic_request(normalized_message, explicit_topic):
+            topic_only_reply = self._topic_only_response(explicit_topic)
+            if topic_only_reply:
+                final_response = self._finalize_response(
+                    session_id,
+                    topic_only_reply,
+                    message,
+                    knowledge_titles=self._knowledge_redirects(explicit_topic, category=explicit_topic),
+                )
+                state["last_intent"] = "clarification"
+                state["last_message"] = message
+                state["last_topic"] = explicit_topic
+                state["awaiting_clarification"] = True
                 self.memory_store.remember_topic(
                     session_id,
                     explicit_topic,
@@ -776,6 +915,10 @@ class ChatbotEngine:
                 message,
                 knowledge_titles=self._knowledge_redirects(normalized_message, category=normalized_message),
             )
+            state["last_intent"] = "clarification"
+            state["last_message"] = message
+            state["last_topic"] = normalized_message
+            state["awaiting_clarification"] = True
             self.memory_store.remember_topic(
                 session_id,
                 normalized_message,
@@ -809,6 +952,11 @@ class ChatbotEngine:
         prefer_procedural_reply = (
             prediction["intent"] in self.procedural_intents and prediction["confidence"] >= 0.45
         )
+        prefer_knowledge_reply = self._should_prefer_knowledge(
+            normalize_text(expanded_message),
+            prediction,
+            knowledge_reply,
+        )
         generic_problem = {
             "j ai un probleme",
             "jai un probleme",
@@ -821,6 +969,8 @@ class ChatbotEngine:
         if normalized_message in generic_problem or self._should_clarify(normalized_message, prediction, knowledge_reply):
             response = random.choice(self.clarification_prompts)
             state["awaiting_clarification"] = True
+            state["last_intent"] = "clarification"
+            state["last_message"] = message
             final_response = self._finalize_response(session_id, response, message)
             self.memory_store.remember_topic(
                 session_id,
@@ -837,7 +987,11 @@ class ChatbotEngine:
                 "quick_replies": self.quick_replies,
             }
 
-        if knowledge_reply and knowledge_reply["knowledge_score"] >= 0.55 and not prefer_procedural_reply:
+        if (
+            knowledge_reply
+            and knowledge_reply["knowledge_score"] >= 0.55
+            and (not prefer_procedural_reply or prefer_knowledge_reply)
+        ):
             redirect_titles = self._knowledge_redirects(
                 expanded_message,
                 category=knowledge_reply.get("source_category"),
@@ -876,6 +1030,8 @@ class ChatbotEngine:
             explicit_topic = explicit_topic or state.get("last_topic")
             if explicit_topic in self.topic_only_prompts:
                 response += " " + self.topic_only_prompts[explicit_topic]
+            state["last_intent"] = "clarification"
+            state["last_message"] = message
             final_response = self._finalize_response(session_id, response, message)
             state["awaiting_clarification"] = True
             self.memory_store.remember_topic(

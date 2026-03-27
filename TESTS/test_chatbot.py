@@ -8,6 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
 from API.engine import ChatbotEngine  # noqa: E402
+from API.graph_connector import GraphConnector  # noqa: E402
 from API.knowledge_base import build_training_samples, load_knowledge_base  # noqa: E402
 from API.llm_client import LLMClient  # noqa: E402
 from API.memory_store import MemoryStore  # noqa: E402
@@ -218,6 +219,77 @@ class ChatbotTests(unittest.TestCase):
         self.assertNotIn("detail", reply["response"])
         self.assertIn("Tu peux aussi regarder", reply["response"])
 
+    def test_engine_answers_teams_navigation_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Comment naviguer dans Teams ?", session_id="teams-nav-1")
+
+        self.assertIn("Activite", reply["response"])
+        self.assertIn("Conversations", reply["response"])
+
+    def test_engine_answers_teams_file_sharing_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Comment partager un fichier dans Teams ?", session_id="teams-file-1")
+
+        self.assertIn("Joindre", reply["response"])
+        self.assertIn("fichier", reply["response"].lower())
+
+    def test_engine_answers_onedrive_access_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Qui a acces a mon fichier OneDrive ?", session_id="onedrive-access-1")
+
+        self.assertIn("Gerer l'acces", reply["response"])
+
+    def test_engine_answers_sharepoint_navigation_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Comment naviguer dans SharePoint ?", session_id="sharepoint-nav-1")
+
+        self.assertIn("sites suivis", reply["response"].lower())
+        self.assertIn("sites frequents", reply["response"].lower())
+
+    def test_engine_answers_sharepoint_search_site_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Comment retrouver un site SharePoint ?", session_id="sharepoint-search-1")
+
+        self.assertIn("barre de recherche", reply["response"].lower())
+        self.assertIn("recents", reply["response"].lower())
+
+    def test_engine_answers_sharepoint_version_history_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("Comment voir l'historique des versions dans SharePoint ?", session_id="sharepoint-version-1")
+
+        self.assertIn("Historique des versions", reply["response"])
+        self.assertIn("restaurer", reply["response"].lower())
+
     def test_engine_refuses_unreliable_business_answer_without_source(self):
         knowledge_base = load_knowledge_base()
         engine = ChatbotEngine(
@@ -270,6 +342,181 @@ class ChatbotTests(unittest.TestCase):
         self.assertTrue(results)
         self.assertEqual(results[0]["category"], "onedrive")
 
+    def test_sharepoint_resources_use_official_microsoft_domains(self):
+        connector = SharePointConnector()
+        sharepoint_docs = [
+            doc for doc in connector.documents if doc.get("category") == "sharepoint"
+        ]
+
+        self.assertTrue(sharepoint_docs)
+        for document in sharepoint_docs:
+            self.assertTrue(
+                document["url"].startswith("https://support.microsoft.com/")
+                or document["url"].startswith("https://learn.microsoft.com/")
+            )
+
+    def test_graph_connector_status_without_env_is_not_configured(self):
+        connector = GraphConnector()
+        status = connector.get_status()
+
+        self.assertIn("enabled", status)
+        self.assertIn("configured", status)
+        if not status["enabled"]:
+            self.assertFalse(status["configured"])
+
+    def test_engine_answers_sharepoint_permission_roles_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Quelle difference entre proprietaire membre et visiteur sur SharePoint ?",
+            session_id="sharepoint-roles-1",
+        )
+
+        self.assertIn("proprietaires", reply["response"].lower())
+        self.assertIn("membres", reply["response"].lower())
+        self.assertIn("visiteurs", reply["response"].lower())
+
+    def test_engine_answers_sharepoint_access_denied_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Que faire si j'ai acces refuse sur un dossier SharePoint ?",
+            session_id="sharepoint-access-1",
+        )
+
+        self.assertIn("acces refuse", reply["response"].lower())
+        self.assertTrue(
+            "proprietaire" in reply["response"].lower()
+            or "administrateur" in reply["response"].lower()
+        )
+
+    def test_engine_answers_sharepoint_page_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Comment creer une page SharePoint ?",
+            session_id="sharepoint-page-1",
+        )
+
+        self.assertIn("page", reply["response"].lower())
+        self.assertTrue(
+            "webpart" in reply["response"].lower()
+            or "nouveau" in reply["response"].lower()
+        )
+
+    def test_engine_answers_sharepoint_webpart_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Comment rajouter un web part dans SharePoint ?",
+            session_id="sharepoint-webpart-1",
+        )
+
+        self.assertTrue("webpart" in reply["response"].lower() or "web part" in reply["response"].lower())
+        self.assertIn("modifier", reply["response"].lower())
+        self.assertIn("+", reply["response"])
+
+    def test_engine_answers_sharepoint_news_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Comment publier une actualite sur SharePoint ?",
+            session_id="sharepoint-news-1",
+        )
+
+        self.assertIn("actualites", reply["response"].lower())
+        self.assertTrue(
+            "site" in reply["response"].lower()
+            or "teams" in reply["response"].lower()
+        )
+
+    def test_engine_answers_sharepoint_recycle_bin_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Comment restaurer un fichier supprime dans la corbeille SharePoint ?",
+            session_id="sharepoint-bin-1",
+        )
+
+        self.assertIn("corbeille", reply["response"].lower())
+        self.assertIn("restaur", reply["response"].lower())
+
+    def test_engine_answers_sharepoint_list_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "A quoi sert une liste SharePoint ?",
+            session_id="sharepoint-list-1",
+        )
+
+        self.assertIn("liste", reply["response"].lower())
+        self.assertTrue(
+            "suivre" in reply["response"].lower()
+            or "inventaire" in reply["response"].lower()
+        )
+
+    def test_engine_answers_sharepoint_content_type_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "A quoi sert un type de contenu SharePoint ?",
+            session_id="sharepoint-content-type-1",
+        )
+
+        self.assertIn("type", reply["response"].lower())
+        self.assertTrue(
+            "coherence" in reply["response"].lower()
+            or "metadonnees" in reply["response"].lower()
+        )
+
+    def test_engine_answers_tool_choice_question(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response(
+            "Quand utiliser Teams SharePoint ou OneDrive ?",
+            session_id="tool-choice-1",
+        )
+
+        self.assertIn("teams", reply["response"].lower())
+        self.assertIn("sharepoint", reply["response"].lower())
+        self.assertIn("onedrive", reply["response"].lower())
+
     def test_topic_only_message_proposes_redirects(self):
         engine = build_engine()
         reply = engine.safe_response("one drive", session_id="topic-1")
@@ -287,6 +534,33 @@ class ChatbotTests(unittest.TestCase):
         self.assertIn("SharePoint", reply["response"])
         self.assertNotIn("OneDrive", reply["response"])
 
+    def test_clarification_follow_up_stays_on_sharepoint_topic(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        engine.safe_response("sharepoint", session_id="clarify-followup-1")
+        reply = engine.safe_response("les bonnes pratique", session_id="clarify-followup-1")
+
+        self.assertIn("structure", reply["response"].lower())
+        self.assertIn("sharepoint", reply["response"].lower())
+        self.assertNotIn("onedrive", reply["response"].lower())
+
+    def test_broad_topic_request_for_onedrive_stays_in_clarification_mode(self):
+        engine = ChatbotEngine(
+            knowledge_base=load_knowledge_base(),
+            connector=SharePointConnector(),
+            llm_client=LLMClient(),
+        )
+
+        reply = engine.safe_response("dis moi sur one drive", session_id="broad-topic-1")
+
+        self.assertEqual(reply["intent"], "clarification")
+        self.assertIn("OneDrive", reply["response"])
+        self.assertNotIn("Corbeille", reply["response"])
+
     def test_api_chat_endpoint(self):
         from API.app import app
 
@@ -302,6 +576,18 @@ class ChatbotTests(unittest.TestCase):
         self.assertTrue(payload["response"])
         self.assertIn("confidence", payload)
         self.assertIn("Creer un site", payload["response"])
+
+    def test_api_status_endpoint(self):
+        from API.app import app
+
+        client = app.test_client()
+        response = client.get("/api/status")
+
+        payload = response.get_json()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(payload["status"], "success")
+        self.assertIn("connector", payload)
+        self.assertIn("graph", payload["connector"])
 
 
 if __name__ == "__main__":

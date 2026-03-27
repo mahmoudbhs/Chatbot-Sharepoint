@@ -5,32 +5,225 @@
       "title": "Bonnes pratiques SharePoint pour un site d'equipe",
       "category": "sharepoint",
       "keywords": ["sharepoint", "site", "equipe", "gouvernance", "permissions", "documents"],
-      "content": "Un site SharePoint d'equipe doit avoir une structure de dossiers simple, des proprietaires clairement identifies et des permissions limitees au besoin reel. Il faut definir des conventions de nommage, eviter les sous-dossiers trop profonds, utiliser les bibliotheques de documents et revoir regulierement les acces des membres.",
-      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+      "content": "Pour un site d'equipe SharePoint, Microsoft recommande de garder une structure simple, de nommer clairement le site, d'ajouter les bons membres des le depart et de gerer les acces par groupes de proprietaires, membres et visiteurs. Il faut ensuite organiser les documents dans des bibliotheques et limiter les autorisations aux besoins reels.",
+      "url": "https://learn.microsoft.com/fr-fr/sharepoint/modern-experience-sharing-permissions",
+      "source": "Microsoft Learn"
     },
     {
       "id": "sp-create-site",
       "title": "Creer un site SharePoint",
       "category": "sharepoint",
       "keywords": ["sharepoint", "creer", "creation", "site", "nouveau site"],
-      "content": "Pour creer un site SharePoint, connectez-vous a SharePoint, cliquez sur '+ Creer un site', choisissez un site d'equipe ou de communication, puis renseignez le nom du site et terminez la creation.",
-      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+      "content": "Pour creer un site SharePoint, ouvrez SharePoint depuis le lanceur d'applications Microsoft 365, cliquez sur + Creer un site, choisissez un site d'equipe ou un site de communication, selectionnez un modele si besoin, donnez un nom au site puis ajoutez des membres. Le createur du site devient automatiquement proprietaire du site.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-un-site-d-%C3%A9quipe-dans-sharepoint-ef10c1e7-15f3-42a3-98aa-b5972711777d",
+      "source": "Support Microsoft"
     },
     {
       "id": "sp-site-permissions",
       "title": "Gerer les droits d'un site SharePoint",
       "category": "sharepoint",
       "keywords": ["sharepoint", "droits", "acces", "permissions", "membres", "autorisations", "donner acces", "partager site", "ajouter membre", "mon site"],
-      "content": "Pour donner acces a un site SharePoint, ouvrez le site, cliquez sur l'engrenage, entrez dans les autorisations du site, puis ajoutez ou modifiez les membres selon le niveau d'acces necessaire.",
-      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+      "content": "Pour donner acces a un site SharePoint, ouvrez le site, allez dans Parametres puis Autorisations du site. Vous pouvez soit ajouter des membres au groupe Microsoft 365 associe, soit partager uniquement le site. Attribuez ensuite le bon niveau de controle, par exemple Lecture, Modification ou Controle total selon le besoin.",
+      "url": "https://support.microsoft.com/fr-fr/office/partager-un-site-958771a8-d041-4eb8-b51c-afea2eae3658",
+      "source": "Support Microsoft"
     },
     {
       "id": "sp-doc-library",
       "title": "Utiliser une bibliotheque de documents SharePoint",
       "category": "sharepoint",
       "keywords": ["sharepoint", "bibliotheque", "documents", "versions", "metadonnees"],
-      "content": "Une bibliotheque de documents SharePoint permet de centraliser les fichiers d'une equipe. Il est recommande d'activer l'historique des versions, d'utiliser les metadonnees pour classer les documents et de partager des liens plutot que des copies locales pour eviter les doublons.",
-      "url": "https://support.microsoft.com/fr-fr/sharepoint"
+      "content": "Une bibliotheque de documents SharePoint sert a centraliser les fichiers d'equipe. Pour bien l'organiser, Microsoft recommande d'utiliser des dossiers si besoin, de trier et filtrer avec des colonnes, de creer des affichages adaptes et de limiter l'acces a la bibliotheque lorsque c'est necessaire.",
+      "url": "https://support.microsoft.com/fr-fr/office/formation-organiser-et-configurer-une-biblioth%C3%A8que-sharepoint-20012a45-ab01-4b4d-a92c-af22c5dc30c9",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-navigation-basics",
+      "title": "Naviguer dans la page de demarrage SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "navigation", "page de demarrage", "sites suivis", "sites frequents", "sites suggeres", "actualites des sites", "accueil"],
+      "content": "La page de demarrage SharePoint permet de naviguer entre les sites suivis, les sites frequents, les sites suggeres et les actualites des sites. Microsoft la presente comme l'endroit ou rechercher des sites et des portails, lire les actualites et retrouver du contenu pertinent rapidement.",
+      "url": "https://support.microsoft.com/fr-fr/office/rechercher-et-suivre-des-sites-des-actualit%C3%A9s-et-du-contenu-4411e38f-9bc5-4ecc-bd33-3dbe939ac84c",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-search-site",
+      "title": "Retrouver des sites et fichiers SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "rechercher un site", "trouver un site", "barre de recherche", "site", "fichiers", "bibliotheques partagees"],
+      "content": "Pour retrouver des sites, des fichiers ou d'autres contenus SharePoint, utilisez la barre de recherche SharePoint puis filtrez les resultats par type, par exemple Fichiers, Sites, Personnes, Actualites, Images ou Videos. Microsoft indique aussi que la page de demarrage et OneDrive professionnel ou scolaire aident a retrouver les bibliotheques partagees et les contenus recents.",
+      "url": "https://support.microsoft.com/fr-fr/office/d%C3%A9couvrir-des-informations-dans-sharepoint-21722d7d-bcb1-4ee0-b86a-6c107bf646c7",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-follow-site",
+      "title": "Roles proprietaire, membre et visiteur dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "proprietaire", "membre", "visiteur", "roles", "groupes", "autorisations"],
+      "content": "Dans l'experience moderne SharePoint, les proprietaires gerent le site et ses autorisations, les membres contribuent au contenu et les visiteurs disposent en general d'un acces en lecture. Pour un site d'equipe connecte a un groupe Microsoft 365, les proprietaires et membres du groupe pilotent aussi l'acces au site.",
+      "url": "https://learn.microsoft.com/fr-fr/sharepoint/modern-experience-sharing-permissions",
+      "source": "Microsoft Learn"
+    },
+    {
+      "id": "sp-upload-download-documents",
+      "title": "Charger ou telecharger des documents dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "charger", "telecharger", "document", "fichier", "upload", "download"],
+      "content": "Pour charger des fichiers ou des dossiers dans une bibliotheque SharePoint, ouvrez la bibliotheque cible puis utilisez Charger ou faites un glisser-deposer dans la bibliotheque. Pour recuperer une copie locale d'un document, selectionnez le fichier puis utilisez la commande Telecharger.",
+      "url": "https://support.microsoft.com/fr-fr/office/charger-des-fichiers-et-des-dossiers-dans-une-biblioth%C3%A8que-de-documents-sharepoint-eb18fcba-c953-4d45-8d90-8da66edeacdb",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-create-folder-document",
+      "title": "Creer une colonne dans une bibliotheque SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "colonne", "bibliotheque", "liste", "metadonnees", "ajouter une colonne"],
+      "content": "Pour mieux classer et suivre les informations dans SharePoint, vous pouvez ajouter une colonne directement dans une liste ou une bibliotheque. Les colonnes servent ensuite a regrouper, trier, filtrer et suivre les informations plus efficacement que des dossiers seuls.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-une-colonne-dans-une-liste-ou-une-biblioth%C3%A8que-2b0361ae-1bd3-41a3-8329-269e5f81cfa2",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-edit-document",
+      "title": "Creer et utiliser des vues dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "vue", "affichage", "filtre", "tri", "bibliotheque", "liste"],
+      "content": "Les vues SharePoint servent a organiser l'affichage d'une liste ou d'une bibliotheque. Vous pouvez creer des vues personnelles ou publiques, puis y appliquer du tri, du filtrage, du regroupement et l'affichage des colonnes les plus utiles.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-modifier-ou-supprimer-un-affichage-de-liste-ou-de-biblioth%C3%A8que-27ae65b8-bc5b-4949-b29b-4ee87144a9c9",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-version-history",
+      "title": "Consulter l'historique des versions dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "historique des versions", "versions", "restaurer", "supprimer version", "document"],
+      "content": "Pour consulter l'historique des versions d'un document SharePoint, ouvrez le menu du fichier puis choisissez Historique des versions. Vous pouvez ensuite afficher une version precedente et, si vos droits le permettent, la restaurer pour revenir a un etat anterieur du document.",
+      "url": "https://support.microsoft.com/fr-fr/office/restaurer-une-version-ant%C3%A9rieure-d-un-%C3%A9l%C3%A9ment-ou-d-un-fichier-dans-sharepoint-f66dbda0-81f4-4d1e-b08c-793265c58934",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-coauthoring",
+      "title": "Travailler a plusieurs sur un document SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "coedition", "travailler a plusieurs", "modification simultanee", "collaboration document"],
+      "content": "Avec les documents Microsoft 365 stockes dans SharePoint, plusieurs personnes peuvent travailler en meme temps sur le meme fichier. La co-creation permet de voir les modifications des autres, de collaborer en temps reel et d'eviter l'envoi de copies multiples du document.",
+      "url": "https://support.microsoft.com/fr-fr/office/co-cr%C3%A9ation-et-collaboration-en-temps-r%C3%A9el-dans-des-documents-word-7dd3040c-3f30-4fdd-bab0-8586492a1f1d",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-metadata-navigation",
+      "title": "Configurer la navigation par metadonnees dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "metadonnees", "navigation", "filtres", "arborescence", "bibliotheque"],
+      "content": "La navigation par metadonnees SharePoint permet de filtrer et retrouver du contenu dans de grandes listes ou bibliotheques a l'aide d'une arborescence et de filtres de cles. Elle est utile quand vous avez beaucoup de documents et que vous voulez guider la recherche par colonnes et termes plutot que par dossiers seuls.",
+      "url": "https://support.microsoft.com/fr-fr/office/configurer-la-navigation-par-m%C3%A9tadonn%C3%A9es-pour-une-liste-ou-une-biblioth%C3%A8que-c222a75d-8b18-44e2-9ed8-7ee4e0d23cfc",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-restore-shared-library",
+      "title": "Restaurer une bibliotheque partagee SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "restaurer une bibliotheque", "bibliotheque partagee", "annuler modifications", "30 jours"],
+      "content": "Si de nombreux fichiers d'une bibliotheque SharePoint ont ete supprimes, remplaces, endommages ou infectes, vous pouvez restaurer l'ensemble de la bibliotheque a une date anterieure. Microsoft indique que cette restauration couvre les 30 derniers jours et annule les actions intervenues sur les fichiers et dossiers pendant cette periode.",
+      "url": "https://support.microsoft.com/fr-fr/office/restaurer-une-biblioth%C3%A8que-partag%C3%A9e-317791c3-8bd0-4dfd-8254-3ca90883d39a",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-access-denied",
+      "title": "Que faire en cas d'acces refuse sur un dossier SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "acces refuse", "permission", "dossier partage", "vous avez besoin d une autorisation"],
+      "content": "Si un utilisateur obtient un message d'acces refuse sur un dossier partage SharePoint, Microsoft recommande de verifier si le dossier parent ou le site sont egalement accessibles. Dans certains cas, il vaut mieux partager un fichier individuel, partager le sous-site ou la collection de sites, ou faire verifier la configuration d'autorisation par le proprietaire ou l'administrateur du site.",
+      "url": "https://learn.microsoft.com/fr-fr/troubleshoot/sharepoint/sharing-and-permissions/access-denied-shared-folder",
+      "source": "Microsoft Learn"
+    },
+    {
+      "id": "sp-modern-pages",
+      "title": "Creer et modifier une page moderne SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "page", "page moderne", "creer une page", "modifier une page", "webpart"],
+      "content": "Pour creer ou modifier une page moderne SharePoint, ouvrez le site puis utilisez Nouveau ou Modifier sur la page. Microsoft indique que vous pouvez ensuite ajouter des sections, des colonnes et des composants WebPart. Sur de nombreux sites modernes, la co-creation des pages est active par defaut.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-et-utiliser-des-pages-modernes-sur-un-site-sharepoint-b3d46deb-27a6-4b1e-87b8-df851e503dec",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-webparts",
+      "title": "Ajouter un composant WebPart sur une page SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "webpart", "web part", "composant webpart", "ajouter un webpart", "rajouter un webpart", "page moderne"],
+      "content": "Pour ajouter un composant WebPart sur une page SharePoint, ouvrez la page voulue, cliquez sur Modifier si elle n'est pas deja en edition, puis utilisez le bouton + pour inserer le composant WebPart souhaite. Microsoft indique que vous pouvez rechercher le composant voulu dans la boite a outils, puis le selectionner ou le faire glisser sur le canevas de la page.",
+      "url": "https://support.microsoft.com/fr-fr/office/utilisation-de-composants-webpart-sur-des-pages-sharepoint-336e8e92-3e2d-4298-ae01-d404bbe751e0",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-news-posts",
+      "title": "Creer et partager des actualites sur un site SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "actualites", "publier une actualite", "news", "article", "communication"],
+      "content": "La fonctionnalite Actualites de SharePoint permet de publier des annonces, des informations et des mises a jour sur un site. Microsoft indique que ces actualites peuvent ensuite apparaitre sur la page de demarrage SharePoint, sur les sites d'equipe, les sites de communication, les sites hub et meme dans Teams selon la configuration.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9ez-et-partagez-des-nouvelles-sur-vos-sites-sharepoint-495f8f1a-3bef-4045-b33a-55e5abe7aed7",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-recycle-bin-restore",
+      "title": "Restaurer des elements depuis la corbeille SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "corbeille", "restaurer un fichier supprime", "restaurer", "element supprime", "teams"],
+      "content": "Quand un fichier, un dossier ou un element est supprime dans SharePoint, il passe d'abord par la corbeille du site. Microsoft indique que vous pouvez le restaurer a son emplacement d'origine tant qu'il est encore present dans la corbeille. La duree de retention est generalement de 93 jours.",
+      "url": "https://support.microsoft.com/fr-fr/office/restaurer-les-%C3%A9l%C3%A9ments-de-la-corbeille-qui-ont-%C3%A9t%C3%A9-supprim%C3%A9s-de-sharepoint-ou-de-teams-6df466b6-55f2-4898-8d6e-c0dff851a0be",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-recycle-bin-second-stage",
+      "title": "Comprendre la corbeille de collection de sites SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "corbeille secondaire", "corbeille collection de sites", "restauration admin", "deuxieme etape"],
+      "content": "Lorsqu'un element est supprime de la corbeille du site SharePoint, il est envoye dans la corbeille de la collection de sites, aussi appelee corbeille secondaire. Microsoft precise que cette zone est surtout utile aux administrateurs de collection de sites pour restaurer des elements encore recuperables.",
+      "url": "https://support.microsoft.com/fr-fr/office/restaurer-les-%C3%A9l%C3%A9ments-supprim%C3%A9s-de-la-corbeille-de-la-collection-de-sites-5fa924ee-16d7-487b-9a0a-021b9062d14b",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-app-bar-navigation",
+      "title": "Utiliser la barre d'application SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "barre d application", "mes sites", "navigation globale", "accueil sharepoint"],
+      "content": "La barre d'application SharePoint, affichee sur le cote gauche des sites modernes, permet d'acceder rapidement a l'accueil SharePoint, a Mes sites et aux ressources importantes definies par l'organisation. Microsoft la presente comme un point d'entree global pour retrouver du contenu quel que soit l'endroit ou l'on se trouve dans SharePoint.",
+      "url": "https://support.microsoft.com/fr-fr/office/utiliser-la-barre-de-l-application-sharepoint-b2ab82d5-9af7-445e-ad24-236c5a86b5f8",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-create-list",
+      "title": "Creer une liste dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "liste", "creer une liste", "suivi", "contacts", "inventaire", "excel"],
+      "content": "Dans SharePoint, une liste sert a suivre des informations comme des problemes, des contacts, des taches ou un inventaire. Microsoft indique que vous pouvez creer une liste a partir de zero, d'un modele ou d'un fichier Excel, puis la partager avec votre equipe.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-une-liste-0d397414-d95f-41eb-addd-5e6eff41b083",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-content-types",
+      "title": "Creer ou personnaliser un type de contenu SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "type de contenu", "contenu de site", "modele", "metadonnees", "coherence documentaire"],
+      "content": "Les types de contenu SharePoint servent a appliquer la meme structure a plusieurs documents ou elements: modele, colonnes, metadonnees ou comportements. Microsoft les recommande pour garantir de la coherence sur un site quand plusieurs bibliotheques ou listes doivent utiliser les memes regles.",
+      "url": "https://support.microsoft.com/fr-fr/office/cr%C3%A9er-ou-personnaliser-un-type-de-contenu-de-site-27eb6551-9867-4201-a819-620c5658a60f",
+      "source": "Support Microsoft"
+    },
+    {
+      "id": "sp-external-sharing",
+      "title": "Comprendre le partage externe dans SharePoint",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "partage externe", "externe", "invites", "liens anonymes", "securite", "one drive"],
+      "content": "Le partage externe dans SharePoint et OneDrive permet de collaborer avec des personnes hors de l'organisation, comme des partenaires ou des fournisseurs. Microsoft precise que ce partage depend des parametres de l'organisation et du site, et recommande de desactiver le partage externe sur les sites contenant des informations sensibles.",
+      "url": "https://learn.microsoft.com/fr-fr/sharepoint/external-sharing-overview",
+      "source": "Microsoft Learn"
+    },
+    {
+      "id": "sp-choose-tool",
+      "title": "Quand utiliser Teams, SharePoint ou OneDrive",
+      "category": "sharepoint",
+      "keywords": ["sharepoint", "teams", "onedrive", "quel outil choisir", "difference", "collaboration"],
+      "content": "Microsoft recommande Teams pour les conversations, reunions et fichiers d'equipe lies au travail quotidien, SharePoint pour le stockage d'equipe a plus grande echelle, les pages, les bibliotheques et la gestion robuste des autorisations, et OneDrive pour les fichiers personnels ou les brouillons que vous partagez ensuite avec quelques personnes.",
+      "url": "https://support.microsoft.com/fr-fr/office/collaboration-avec-teams-sharepoint-et-onedrive-9ea6aa07-6e5e-4917-9267-d4d361da3dea",
+      "source": "Support Microsoft"
     },
     {
       "id": "teams-meeting-best-practices",
@@ -57,6 +250,38 @@
       "url": "https://support.microsoft.com/fr-fr/teams"
     },
     {
+      "id": "teams-navigation-basics",
+      "title": "Naviguer dans Microsoft Teams",
+      "category": "teams",
+      "keywords": ["teams", "navigation", "activite", "conversations", "equipes", "calendrier", "appels", "fichiers", "applications", "profil"],
+      "content": "Dans Teams, le menu de gauche sert a naviguer entre Activite, Conversations, Equipes, Calendrier, Appels, Fichiers et Applications. La zone de recherche en haut permet de retrouver des personnes, des fichiers, des conversations ou des reunions.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "teams-start-conversation",
+      "title": "Demarrer une conversation dans Teams",
+      "category": "teams",
+      "keywords": ["teams", "conversation", "message", "nouvelle conversation", "chat", "repondre", "mention"],
+      "content": "Pour demarrer une conversation dans Teams, ouvrez Conversations, creez une nouvelle discussion, ajoutez le nom des personnes concernees, tapez votre message puis envoyez-le. Dans un canal, utilisez Repondre pour rattacher votre message a la bonne discussion et tapez @ suivi du nom d'une personne pour attirer son attention.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "teams-share-file",
+      "title": "Partager un fichier dans Teams",
+      "category": "teams",
+      "keywords": ["teams", "partager", "fichier", "joindre", "conversation", "canal"],
+      "content": "Pour partager un fichier dans Teams, utilisez Joindre sous la zone de message, choisissez l'emplacement du fichier puis selectionnez le document a partager. Selon l'emplacement, Teams peut telecharger une copie ou partager un lien vers le fichier.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
+      "id": "teams-test-meeting",
+      "title": "Tester une reunion Teams",
+      "category": "teams",
+      "keywords": ["teams", "test", "reunion", "conference maintenant", "rejoindre maintenant", "essai"],
+      "content": "Pour tester une reunion Teams sans risque, ouvrez l'onglet Calendrier, utilisez Conference maintenant ou Reunir maintenant, puis rejoignez la reunion pour essayer le partage d'ecran, l'audio, la video et le tableau blanc.",
+      "url": "https://support.microsoft.com/fr-fr/teams"
+    },
+    {
       "id": "onedrive-sync-troubleshooting",
       "title": "Diagnostic d'une synchronisation OneDrive",
       "category": "onedrive",
@@ -78,6 +303,38 @@
       "category": "onedrive",
       "keywords": ["onedrive", "partage", "lien", "modifier", "lecture", "securite"],
       "content": "Pour partager un fichier OneDrive, il faut choisir si les destinataires peuvent modifier ou seulement lire, verifier si le lien est interne ou externe a l'entreprise et supprimer les partages devenus inutiles. Le partage par lien est a privilegier plutot que l'envoi de pieces jointes volumineuses.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-navigation-basics",
+      "title": "Se reperer dans OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "navigation", "barre de recherche", "fichiers personnels", "partages", "office.com"],
+      "content": "Dans OneDrive, la barre de recherche aide a retrouver rapidement un document. Vous y voyez vos fichiers personnels, les fichiers partages avec vous et vous pouvez acceder a OneDrive soit depuis l'explorateur Windows, soit en ligne via office.com.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-add-documents",
+      "title": "Ajouter des documents dans OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "ajouter", "document", "nouveau", "glisser deposer", "charger"],
+      "content": "Pour ajouter un document dans OneDrive, vous pouvez glisser-deposer le fichier dans votre espace OneDrive ou utiliser le bouton Nouveau pour creer un document et Charger pour importer un fichier existant.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-manage-access",
+      "title": "Verifier qui a acces a un fichier OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "acces", "gerer l acces", "partage", "qui a acces", "droits"],
+      "content": "Pour verifier qui a acces a un fichier OneDrive, faites un clic droit sur le document, choisissez Partager, puis ouvrez Gerer l'acces. Vous pourrez voir les personnes ayant deja acces au fichier et retirer un partage si necessaire.",
+      "url": "https://support.microsoft.com/fr-fr/onedrive"
+    },
+    {
+      "id": "onedrive-sync-status",
+      "title": "Comprendre l'etat de synchronisation OneDrive",
+      "category": "onedrive",
+      "keywords": ["onedrive", "synchronisation", "etat", "nuage", "icone", "fichier local", "fichier en ligne"],
+      "content": "OneDrive affiche l'etat de synchronisation avec des pictogrammes. Un fichier en ligne uniquement est disponible si vous etes connecte a Internet, un fichier disponible localement peut etre ouvert hors connexion, et l'icone de synchronisation indique qu'un fichier est en cours d'enregistrement sur OneDrive.",
       "url": "https://support.microsoft.com/fr-fr/onedrive"
     },
     {

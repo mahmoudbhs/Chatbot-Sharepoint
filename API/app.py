@@ -8,6 +8,7 @@ from flask_cors import CORS
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from API.chatbot import chatbot_reply  # noqa: E402
+from API.sharepoint_connector import SharePointConnector  # noqa: E402
 
 
 app = Flask(
@@ -17,6 +18,7 @@ app = Flask(
     static_url_path="",
 )
 CORS(app)
+status_connector = SharePointConnector()
 
 
 @app.route("/")
@@ -48,6 +50,16 @@ def chat():
     except Exception as exc:
         print(f"Erreur API: {exc}")
         return jsonify({"error": str(exc), "status": "error"}), 500
+
+
+@app.route("/api/status", methods=["GET"])
+def status():
+    return jsonify(
+        {
+            "status": "success",
+            "connector": status_connector.get_runtime_status(),
+        }
+    )
 
 
 if __name__ == "__main__":
